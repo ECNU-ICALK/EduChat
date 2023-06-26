@@ -1,7 +1,9 @@
 # EduChat
 <p align="center" width="100%">
-<a href="https://www.educhat.top/" target="_blank"><img src="https://github.com/icalk-nlp/EduChat/tree/main/imgs/EduChat.jpeg" alt="EduChat" style="width: 50%; min-width: 300px; display: block; margin: auto;"></a>
+<a href="https://www.educhat.top/" target="_blank"><img src="https://github.com/icalk-nlp/EduChat/blob/94c1e6a45542d1ffdc36a7c5511f2780353e74a2/imgs/EduChat.jpeg" alt="EduChat" style="width: 50%; min-width: 300px; display: block; margin: auto;"></a>
 </p>
+
+
 
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-brightgreen.svg)](https://github.com/DrJZhou/EduChat/blob/main/LICENSE)
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/DrJZhou/EduChat/blob/main/DATA_LICENSE)
