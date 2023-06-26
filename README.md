@@ -55,10 +55,16 @@
 
 <details><summary><b>作文批改</b></summary>
 
+
+![image](https://github.com/icalk-nlp/EduChat/blob/c130a3b529a26353d14a9c9c13cf528e5ff7931b/imgs/example_chatedu.gif)
+
 </details>
 
 <details><summary><b>心理诊断</b></summary>
+
+
 ![image](https://github.com/icalk-nlp/EduChat/blob/c130a3b529a26353d14a9c9c13cf528e5ff7931b/imgs/example_chatedu.gif)
+
 </details>
 
 <details><summary><b>心理疏导</b></summary>
