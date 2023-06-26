@@ -9,7 +9,7 @@
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/DrJZhou/EduChat/blob/main/DATA_LICENSE)
 [![Model License](https://img.shields.io/badge/Model%20License-GNU%20AGPL%203.0-red.svg)](https://github.com/DrJZhou/EduChat/blob/main/MODEL_LICENSE)
 
-[[中文版](https://github.com/icalk-nlp/EduChat/blob/a6356e3cf7767bcfcf4449ccffda58811f18679b/README.md)] [[English](https://github.com/DrJZhou/EduChat/blob/main/README_en.md)] [[官方微信群](https://github.com/DrJZhou/EduChat/blob/main/examples/WeChatGroupQR.jpg)]
+[[中文版](https://github.com/icalk-nlp/EduChat/blob/a6356e3cf7767bcfcf4449ccffda58811f18679b/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/a6356e3cf7767bcfcf4449ccffda58811f18679b/README.md)] [[官方微信群](https://github.com/WeChatGroupQR.jpg)]
 
 ## 目录
 
@@ -34,13 +34,13 @@
 
 ### 模型
 
-- [**educhat-002-7b**](https://huggingface.co/edunlp/educhat-002-7b): Educhat-002-7B基座模型，在高质量中英文语料上自监督预训练得到。
-- **educhat-002-13b**: 13B模型，训练得到的最终模型，具备更好的事实性和安全性以及更稳定的回复质量，将在近期开源。
+- [**educhat-sft-001-7b**](https://huggingface.co/edunlp/educhat-002-7b): 在我们构建的中文教育领域语料与经过去重的高质量海量开源语料上训练得到。
+- **educhat-sft-001-13b**: 13B模型，训练得到的最终模型，具备更好的事实性和安全性以及更稳定的回复质量，将在近期开源。
 
 ### 数据
 
-- [**educhat-002-emotion**](https://huggingface.co/datasets/edunlp/educhat-002-emotion-data): 。。。
-- **educhat-002-ariticle**: 。。，将在近期开源。
+- [**educhat-data-sft**](https://huggingface.co/datasets/edunlp/educhat-002-emotion-data): 
+- **educhat-002-ariticle**: 
 
 
 ## :fountain_pen: 介绍
@@ -49,19 +49,22 @@
 
 **局限性**：由于模型参数量较小和自回归生成范式，EduChat仍然可能生成包含事实性错误的误导性回复或包含偏见/歧视的有害内容，请谨慎鉴别和使用EduChat生成的内容，请勿将EduChat生成的有害内容传播至互联网。若产生不良后果，由传播者自负。
 
-**EduChat用例**：
+**开放问答**：
 
-![image](https://github.com/DrJZhou/EduChat/blob/main/examples/example_chatedu.gif)
-
-<details><summary><b>情感支持</b></summary>
-
-![image](https://github.com/DrJZhou/EduChat/blob/main/examples/example_educhat_emotion.png)
-
-</details>
+![image](https://github.com/icalk-nlp/EduChat/blob/c130a3b529a26353d14a9c9c13cf528e5ff7931b/imgs/example_chatedu.gif)
 
 <details><summary><b>作文批改</b></summary>
 
-![image](https://github.com/DrJZhou/EduChat/blob/main/examples/example_educhat_article.png)
+</details>
+
+<details><summary><b>心理诊断</b></summary>
+![image](https://github.com/icalk-nlp/EduChat/blob/c130a3b529a26353d14a9c9c13cf528e5ff7931b/imgs/example_chatedu.gif)
+</details>
+
+<details><summary><b>心理疏导</b></summary>
+
+
+![image](https://github.com/icalk-nlp/EduChat/blob/c130a3b529a26353d14a9c9c13cf528e5ff7931b/imgs/example_chatedu.gif)
 
 </details>
 
