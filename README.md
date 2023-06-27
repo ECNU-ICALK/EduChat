@@ -19,9 +19,6 @@
   - [硬件要求](#硬件要求)
   - [下载安装](#下载安装)
   - [使用示例](#使用示例)
-- [微调](#fire-微调)
-  - [软件依赖](#软件依赖)
-  - [使用方法](#使用方法)
 - [未来计划](#construction-未来计划)
 - [开源协议](#page_with_curl-开源协议)
 
@@ -44,8 +41,6 @@
 ## :fountain_pen: 介绍
 
 教育是影响人的身心发展的社会实践活动，旨在把人所固有的或潜在的素质自内而外激发出来。因此，必须贯彻“以人为本”的教育理念，重点关注人的个性化、引导式、身心全面发展。为了更好地助力”以人为本“的教育，华东师范大学计算机科学与技术学院的[EduNLP团队](https://www.educhat.top/#/)探索了针对教育垂直领域的对话大模型[EduChat](https://www.educhat.top)相关项目研发。该项目主要研究以预训练大模型为基底的教育对话大模型相关技术，融合多样化的教育垂直领域数据，辅以指令微调、价值观对齐等方法，提供教育场景下自动出题、作业批改、情感支持、课程辅导、高考咨询等丰富功能，服务于广大老师、学生和家长群体，助力实现因材施教、公平公正、富有温度的智能教育。
-
-**局限性**：由于模型参数量较小和自回归生成范式，EduChat仍然可能生成包含事实性错误的误导性回复或包含偏见/歧视的有害内容，请谨慎鉴别和使用EduChat生成的内容，请勿将EduChat生成的有害内容传播至互联网。若产生不良后果，由传播者自负。
 
 **开放问答**：
 
@@ -111,12 +106,12 @@ pip install transformers
 
 #### 单卡部署（适用于A100/A800）
 
-以下是一个简单的调用`educhat-002-7B`生成对话的示例代码，可在单张A100/A800或CPU运行，使用FP16精度时约占用30GB显存：
+以下是一个简单的调用`educhat-sft-002-7b`生成对话的示例代码，可在单张A100/A800或CPU运行，使用FP16精度时约占用30GB显存：
 
 ```python
 >>> from transformers import LlamaForCausalLM, LlamaTokenizer
->>> tokenizer = LlamaTokenizer.from_pretrained("edunlp/educhat-002-7b/")
->>> model = LlamaForCausalLM.from_pretrained("edunlp/educhat-002-7b/",torch_dtype=torch.float16,).half.cuda()
+>>> tokenizer = LlamaTokenizer.from_pretrained("ecnu-icalk/educhat-sft-002-7b")
+>>> model = LlamaForCausalLM.from_pretrained("ecnu-icalk/educhat-sft-002-7b",torch_dtype=torch.float16,).half.cuda()
 >>> model = model.eval()
 >>> query = "<|prompter|>你好</s><|assistant|>"
 >>> inputs = tokenizer(query, return_tensors="pt", padding=True).to(0)
@@ -124,20 +119,14 @@ pip install transformers
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
 您好！我是EduChat，有什么我可以帮助您的吗？ 
->>> query = tokenizer.decode(outputs[0]) + "\n<|Human|>: 推荐五部科幻电影<eoh>\n<|EduChat|>:"
+>>> query = tokenizer.decode(outputs[0]) + "\n<|Human|>: 你是谁？<eoh>\n<|EduChat|>:"
 >>> inputs = tokenizer(query, return_tensors="pt")
 >>> for k in inputs:
 ...     inputs[k] = inputs[k].cuda()
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=256)
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
-好的，以下是我为您推荐的五部科幻电影：
-1. 《星际穿越》
-2. 《银翼杀手2049》
-3. 《黑客帝国》
-4. 《异形之花》
-5. 《火星救援》
-希望这些电影能够满足您的观影需求。
+我是华东师范大学语言认知与知识计算团队开发的教育对话大模型EduChat，我的名字是EduChat。我可以回答你的问题，提供帮助和建议，和你聊天。如果你需要帮助，请随时问我！
 ```
 
 #### 多卡部署（适用于两张或以上NVIDIA 3090）
@@ -167,18 +156,12 @@ pip install transformers
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
 您好！我是EduChat，有什么我可以帮助您的吗？ 
->>> query = tokenizer.decode(outputs[0]) + "\n<|Human|>: 推荐五部科幻电影<eoh>\n<|EduChat|>:"
+>>> query = tokenizer.decode(outputs[0]) + "\n<|Human|>: 你是谁？<eoh>\n<|EduChat|>:"
 >>> inputs = tokenizer(query, return_tensors="pt")
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=256)
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
-好的，以下是我为您推荐的五部科幻电影：
-1. 《星际穿越》
-2. 《银翼杀手2049》
-3. 《黑客帝国》
-4. 《异形之花》
-5. 《火星救援》
-希望这些电影能够满足您的观影需求。
+我是华东师范大学语言认知与知识计算团队开发的教育对话大模型EduChat，我的名字是EduChat。我可以回答你的问题，提供帮助和建议，和你聊天。如果你需要帮助，请随时问我！
 ```
 
 #### 模型量化
@@ -199,43 +182,17 @@ pip install transformers
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
 您好！我是EduChat，有什么我可以帮助您的吗？
->>> query = tokenizer.decode(outputs[0]) + "\n<|Human|>: 推荐五部科幻电影<eoh>\n<|EduChat|>:"
+>>> query = tokenizer.decode(outputs[0]) + "\n<|Human|>: 你是谁？<eoh>\n<|EduChat|>:"
 >>> inputs = tokenizer(query, return_tensors="pt")
 >>> for k in inputs:
 ...     inputs[k] = inputs[k].cuda()
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=512)
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
-好的，以下是五部经典的科幻电影：
-
-1.《星球大战》系列（Star Wars）
-2.《银翼杀手》（Blade Runner）
-3.《黑客帝国》系列（The Matrix）
-4.《异形》（Alien）
-5.《第五元素》（The Fifth Element）
-
-希望您会喜欢这些电影！
+我是华东师范大学语言认知与知识计算团队开发的教育对话大模型EduChat，我的名字是EduChat。我可以回答你的问题，提供帮助和建议，和你聊天。如果你需要帮助，请随时问我！
 ~~~
 
 #### 网页Demo
-
-**Streamlit**
-
-我们提供了一个基于[Streamlit](https://streamlit.io/)实现的网页Demo，您可以运行本仓库中的[educhat_web_demo_streamlit.py](https://github.com/ICALK/EduChat/blob/main/educhat_web_demo_streamlit.py)来打开网页Demo：
-
-```bash
-streamlit run educhat_web_demo_streamlit.py --server.port 8888
-```
-
-该网页Demo默认使用`educhat-002-7b`单卡运行，您也可以通过参数指定其他模型以及多卡并行，例如：
-
-```bash
-streamlit run EduChat_web_demo_streamlit.py --server.port 8888 -- --model_name edunlp/educhat-002-13b --gpu 0,1
-```
-
-注意：使用Streamlit命令时需要用一个额外的`--`分割Streamlit的参数和Python程序中的参数。
-
-![image](https://github.com/ICALK/EduChat/blob/main/examples/educhat_web_demo.png)
 
 **Gradio**
 
@@ -247,10 +204,10 @@ python educhat_web_demo_gradio.py
 
 #### Api Demo
 
-你可以运行仓库中的`educhat_api_demo.py`来对外提供一个简单的api服务
+你可以运行仓库中的`educhat_api.py`来对外提供一个简单的api服务
 
 ```bash
-python educhat_api_demo.py
+python educhat_api.py
 ```
 
 启动api服务后，您可以通过网络调用来与EduChat交互
@@ -293,64 +250,6 @@ python educhat_cli_demo.py --model_name edunlp/educhat-002-13b --gpu 0,1
 
 ![image](https://github.com/ICALK/EduChat/blob/main/examples/example_educhat_cli_demo.png)
 
-#### 通过API调用EduChat服务
-
-如您不具备本地部署条件或希望快速将EduChat部署到您的服务环境，请联系我们获取推理服务IP地址以及专用API KEY，我们将根据当前服务压力考虑通过API接口形式向您提供服务，接口格式请参考[这里](https://github.com/ICALK/EduChat/blob/main/educhat_api.pdf)。由于服务能力有限，目前仅面向企业开放API服务，请签署[本文件](https://github.com/ICALK/EduChat/blob/main/agreements/EduChat_agreement.pdf)并填写[此问卷](...)取得授权。
-
-## :fire: 微调
-
-本仓库提供了基于 EduChat 基座模型进行 SFT 训练的微调代码 [finetune_educhat.py](https://github.com/ICALK/EduChat/blob/main/finetune_educhat.py)。
-
-### 软件依赖
-
-```bash
-accelerate==0.17.1
-numpy==1.24.2
-regex==2022.10.31
-torch==1.13.1+cu117
-tqdm==4.64.1
-transformers==4.25.1
-```
-
-### 使用方法
-
-创建 `run.sh` 文件并将以下内容复制到该文件中：
-
-```bash
-num_machines=4
-num_processes=$((num_machines * 8))
-machine_rank=0
-
-accelerate launch \
-	--config_file ./configs/sft.yaml \
-	--num_processes $num_processes \
-	--num_machines $num_machines \
-	--machine_rank $machine_rank \
-	--deepspeed_multinode_launcher standard finetune_EduChat.py \
-	--model_name_or_path edunlp/EduChat-moon-003-base \
-	--data_dir ./sft_data \
-	--output_dir ./ckpts/educhat-002-7b \
-	--log_dir ./train_logs/educhat-002-7b \
-	--n_epochs 2 \
-	--train_bsz_per_gpu 4 \
-	--eval_bsz_per_gpu 4 \
-	--learning_rate 0.000015 \
-	--eval_step 200 \
-	--save_step 2000"
-```
-
-然后，运行以下指令进行训练:
-```bash
-bash run.sh
-```
-多节点运行需每台机器都运行一次，且需要正确指定每台机器的 `machine_rank`.
-如果你想要从本地加载模型，可以将 run.sh 中的 edunlp/EduChat-moon-003-base 改为你本地的模型路径。
-
-在使用的时候注意 `EduChat-moon-003-base` 模型的 tokenizer 中，`eos token` 为 `<|endoftext|>`，在训练SFT模型时需要将该 token 指定为 `<eom>` token.
-
-
-
-如果您有其他开源项目使用或改进EduChat，欢迎提交Pull Request添加到README或在Issues中联系我们。
 
 ## :construction: 未来计划
 
