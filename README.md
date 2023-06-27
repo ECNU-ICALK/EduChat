@@ -4,8 +4,7 @@
 </p>
 
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
-[![Code License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
-[![Code License](https://img.shields.io/badge/Model%20License-GNU%20AGPL%203.0-red.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
+[![Data License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
 [![Generic badge](https://img.shields.io/badge/🤗-Huggingface%20Repo-577CF6.svg)](https://huggingface.co/ecnu-icalk)
 
 [[中文版](https://github.com/icalk-nlp/EduChat/blob/a6356e3cf7767bcfcf4449ccffda58811f18679b/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/a6356e3cf7767bcfcf4449ccffda58811f18679b/README.md)]
@@ -23,7 +22,6 @@
 - [微调](#fire-微调)
   - [软件依赖](#软件依赖)
   - [使用方法](#使用方法)
-- [友情链接](#link-友情链接)
 - [未来计划](#construction-未来计划)
 - [开源协议](#page_with_curl-开源协议)
 
@@ -348,9 +346,6 @@ bash run.sh
 
 在使用的时候注意 `EduChat-moon-003-base` 模型的 tokenizer 中，`eos token` 为 `<|endoftext|>`，在训练SFT模型时需要将该 token 指定为 `<eom>` token.
 
-## :link: 友情链接
-
-- [...]() - 关于EduChat技术的分享
 
 
 如果您有其他开源项目使用或改进EduChat，欢迎提交Pull Request添加到README或在Issues中联系我们。
