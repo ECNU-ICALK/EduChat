@@ -2,12 +2,10 @@
 <p align="center" width="100%">
 <a href="https://www.educhat.top/" target="_blank"><img src="https://github.com/icalk-nlp/EduChat/blob/94c1e6a45542d1ffdc36a7c5511f2780353e74a2/imgs/EduChat.jpeg" alt="EduChat" style="width: 50%; min-width: 300px; display: block; margin: auto;"></a>
 </p>
+
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
-
 [![Code License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
-
 [![Code License](https://img.shields.io/badge/Model%20License-GNU%20AGPL%203.0-red.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
-
 [![Generic badge](https://img.shields.io/badge/🤗-Huggingface%20Repo-577CF6.svg)](https://huggingface.co/ecnu-icalk)
 
 [[中文版](https://github.com/icalk-nlp/EduChat/blob/a6356e3cf7767bcfcf4449ccffda58811f18679b/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/a6356e3cf7767bcfcf4449ccffda58811f18679b/README.md)]
