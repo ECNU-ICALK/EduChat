@@ -88,21 +88,23 @@
 1. 下载本仓库内容至本地/远程服务器
 
 ```bash
-git clone https://github.com/ICALK/EduChat.git
+git clone https://github.com/icalk-nlp/EduChat.git
 cd EduChat
 ```
 
 2. 创建conda环境
 
 ```bash
-conda create --name educhat python=3.8
+conda create --name educhat python=3.10
 conda activate educhat
 ```
 
 3. 安装依赖
 
 ```bash
-pip install -r requirements.txt
+# 首先安装pytorch，安装方法请自行百度。
+# 然后安装最新版本的transformers
+pip install transformers
 ```
 
 ### 使用示例
@@ -361,13 +363,25 @@ bash run.sh
 - **工具调用**：我们期望的EduChat应当是千人千面的，未来我们希望能够给每个人一个独一无二的EduChat，它将在与你的交互中持续学习，伴随你的成长而成长，成为你的专属助手。
 
 
-## :page_with_curl: 开源协议
+## :page_with_curl: 开源协议、模型局限、使用限制与免责声明
 
-本项目所含代码采用[Apache 2.0](https://github.com/ICALK/EduChat/blob/main/LICENSE)协议，数据采用[CC BY-NC 4.0](https://github.com/ICALK/EduChat/blob/main/DATA_LICENSE)协议，模型权重采用[GNU AGPL 3.0](https://github.com/ICALK/EduChat/blob/main/MODEL_LICENSE)协议。如需将本项目所含模型用于商业用途或公开部署，请签署[本文件](https://github.com/ICALK/EduChat/blob/main/agreements/EduChat_agreement.pdf)并填写[此问卷](https://a1jkiq3cpx.feishu.cn/share/base/form/shrcn80vIDuXWOOEGrHpvARaBPe)取得授权，商用情况仅用于记录，不会收取任何费用。如使用本项目所含模型及其修改版本提供服务产生误导性或有害性言论，造成不良影响，由服务提供方负责，与本项目无关。
+本项目所含代码采用[Apache 2.0](https://github.com/ICALK/EduChat/blob/main/LICENSE)协议，数据采用[CC BY-NC 4.0](https://github.com/ICALK/EduChat/blob/main/DATA_LICENSE)协议。
+
+尽管我们对EduChat进行了优化，但仍存在以下问题，需要进行改进：
+
+- 当涉及到事实性指令时，可能会产生错误的回答，与实际事实相悖。
+
+- 模型回复可能存在偏见，有可能生成危险性言论。
+
+- 在某些场景中，比如推理、代码、多轮对话等方面，模型的能力仍有待提高。
+
+鉴于上述模型的局限性，我们要求开发者仅将我们开源的代码、数据、模型以及由该项目生成的衍生物用于研究目的，禁止用于商业用途，以及其他可能对社会带来危害的用途。
+
+本项目仅供研究目的使用，项目开发者对于使用本项目（包括但不限于数据、模型、代码等）所导致的任何危害或损失不承担责任。详情请参考该[免责声明](https://github.com/icalk-nlp/EduChat/blob/6a66c7033ad77c82805e1d2bd1b007aaf87966e0/LICENSE/DISCLAIMER)。
 
 ## :heart: 致谢
 
-- [LLaMa](https://arxiv.org/abs/2302.13971): 基座模型在LLaMa初始化基础上进行中文预训练
-- [华师大出版社](https://www.ecnupress.com.cn/)：数据支持
+- [LLaMa](https://arxiv.org/abs/2302.13971): 基座模型在LLaMa基础上使用中英文数据预训练
+- [华东师范大学出版社](https://www.ecnupress.com.cn/)：数据支持
 - [竹蜻蜓数据科技（浙江）有限公司](https://www.autopaddle.com//): 开发支持
-- [邱锡鹏教授](https://www.shlab.org.cn/): 项目顾问
+- [邱锡鹏教授](https://xpqiu.github.io/): 项目顾问
