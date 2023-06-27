@@ -34,13 +34,14 @@
 
 ### 模型
 
-- [**educhat-sft-001-7b**](https://huggingface.co/edunlp/educhat-002-7b): 在我们构建的中文教育领域语料与经过去重的高质量海量开源语料上训练得到。
-- **educhat-sft-001-13b**: 13B模型，训练得到的最终模型，具备更好的事实性和安全性以及更稳定的回复质量，将在近期开源。
+经过educhat-sft-002-data-osm训练后，在我们构建的教育领域多技能高质量数据上继续微调后得到，有7b和13b两个版本可选：
+
+- [**educhat-sft-002-7b**](https://huggingface.co/ecnu-icalk/educhat-sft-002-7b)
+- [**educhat-sft-002-13b**](https://huggingface.co/ecnu-icalk/educhat-sft-002-13b)
 
 ### 数据
 
-- [**educhat-data-sft**](https://huggingface.co/datasets/edunlp/educhat-002-emotion-data): 
-- **educhat-002-ariticle**: 
+- [**educhat-sft-002-data-osm**](https://huggingface.co/datasets/ecnu-icalk/educhat-sft-002-data-osm): 混合多个开源中英指令、对话数据，并去重后得到。
 
 
 ## :fountain_pen: 介绍
