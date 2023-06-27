@@ -2,14 +2,15 @@
 <p align="center" width="100%">
 <a href="https://www.educhat.top/" target="_blank"><img src="https://github.com/icalk-nlp/EduChat/blob/94c1e6a45542d1ffdc36a7c5511f2780353e74a2/imgs/EduChat.jpeg" alt="EduChat" style="width: 50%; min-width: 300px; display: block; margin: auto;"></a>
 </p>
+[![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
 
+[![Code License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
 
+[![Code License](https://img.shields.io/badge/Model%20License-GNU%20AGPL%203.0-red.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
 
-[![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-brightgreen.svg)](https://github.com/DrJZhou/EduChat/blob/main/LICENSE)
-[![Data License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/DrJZhou/EduChat/blob/main/DATA_LICENSE)
-[![Model License](https://img.shields.io/badge/Model%20License-GNU%20AGPL%203.0-red.svg)](https://github.com/DrJZhou/EduChat/blob/main/MODEL_LICENSE)
+[![Generic badge](https://img.shields.io/badge/🤗-Huggingface%20Repo-577CF6.svg)](https://huggingface.co/ecnu-icalk)
 
-[[中文版](https://github.com/icalk-nlp/EduChat/blob/a6356e3cf7767bcfcf4449ccffda58811f18679b/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/a6356e3cf7767bcfcf4449ccffda58811f18679b/README.md)] [[官方微信群](https://github.com/WeChatGroupQR.jpg)]
+[[中文版](https://github.com/icalk-nlp/EduChat/blob/a6356e3cf7767bcfcf4449ccffda58811f18679b/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/a6356e3cf7767bcfcf4449ccffda58811f18679b/README.md)]
 
 ## 目录
 
@@ -91,7 +92,7 @@
 1. 下载本仓库内容至本地/远程服务器
 
 ```bash
-git clone https://github.com/DrJZhou/EduChat.git
+git clone https://github.com/ICALK/EduChat.git
 cd EduChat
 ```
 
@@ -222,7 +223,7 @@ pip install -r requirements.txt
 
 **Streamlit**
 
-我们提供了一个基于[Streamlit](https://streamlit.io/)实现的网页Demo，您可以运行本仓库中的[educhat_web_demo_streamlit.py](https://github.com/DrJZhou/EduChat/blob/main/educhat_web_demo_streamlit.py)来打开网页Demo：
+我们提供了一个基于[Streamlit](https://streamlit.io/)实现的网页Demo，您可以运行本仓库中的[educhat_web_demo_streamlit.py](https://github.com/ICALK/EduChat/blob/main/educhat_web_demo_streamlit.py)来打开网页Demo：
 
 ```bash
 streamlit run educhat_web_demo_streamlit.py --server.port 8888
@@ -236,11 +237,11 @@ streamlit run EduChat_web_demo_streamlit.py --server.port 8888 -- --model_name e
 
 注意：使用Streamlit命令时需要用一个额外的`--`分割Streamlit的参数和Python程序中的参数。
 
-![image](https://github.com/DrJZhou/EduChat/blob/main/examples/educhat_web_demo.png)
+![image](https://github.com/ICALK/EduChat/blob/main/examples/educhat_web_demo.png)
 
 **Gradio**
 
-您可以运行本仓库中的[educhat_web_demo_gradio.py](https://github.com/DrJZhou/EduChat/blob/main/educhat_web_demo_gradio.py)：
+您可以运行本仓库中的[educhat_web_demo_gradio.py](https://github.com/ICALK/EduChat/blob/main/educhat_web_demo_gradio.py)：
 
 ```bash
 python educhat_web_demo_gradio.py
@@ -292,15 +293,15 @@ python educhat_cli_demo.py
 python educhat_cli_demo.py --model_name edunlp/educhat-002-13b --gpu 0,1
 ```
 
-![image](https://github.com/DrJZhou/EduChat/blob/main/examples/example_educhat_cli_demo.png)
+![image](https://github.com/ICALK/EduChat/blob/main/examples/example_educhat_cli_demo.png)
 
 #### 通过API调用EduChat服务
 
-如您不具备本地部署条件或希望快速将EduChat部署到您的服务环境，请联系我们获取推理服务IP地址以及专用API KEY，我们将根据当前服务压力考虑通过API接口形式向您提供服务，接口格式请参考[这里](https://github.com/DrJZhou/EduChat/blob/main/educhat_api.pdf)。由于服务能力有限，目前仅面向企业开放API服务，请签署[本文件](https://github.com/DrJZhou/EduChat/blob/main/agreements/EduChat_agreement.pdf)并填写[此问卷](...)取得授权。
+如您不具备本地部署条件或希望快速将EduChat部署到您的服务环境，请联系我们获取推理服务IP地址以及专用API KEY，我们将根据当前服务压力考虑通过API接口形式向您提供服务，接口格式请参考[这里](https://github.com/ICALK/EduChat/blob/main/educhat_api.pdf)。由于服务能力有限，目前仅面向企业开放API服务，请签署[本文件](https://github.com/ICALK/EduChat/blob/main/agreements/EduChat_agreement.pdf)并填写[此问卷](...)取得授权。
 
 ## :fire: 微调
 
-本仓库提供了基于 EduChat 基座模型进行 SFT 训练的微调代码 [finetune_educhat.py](https://github.com/DrJZhou/EduChat/blob/main/finetune_educhat.py)。
+本仓库提供了基于 EduChat 基座模型进行 SFT 训练的微调代码 [finetune_educhat.py](https://github.com/ICALK/EduChat/blob/main/finetune_educhat.py)。
 
 ### 软件依赖
 
@@ -369,7 +370,7 @@ bash run.sh
 
 ## :page_with_curl: 开源协议
 
-本项目所含代码采用[Apache 2.0](https://github.com/DrJZhou/EduChat/blob/main/LICENSE)协议，数据采用[CC BY-NC 4.0](https://github.com/DrJZhou/EduChat/blob/main/DATA_LICENSE)协议，模型权重采用[GNU AGPL 3.0](https://github.com/DrJZhou/EduChat/blob/main/MODEL_LICENSE)协议。如需将本项目所含模型用于商业用途或公开部署，请签署[本文件](https://github.com/DrJZhou/EduChat/blob/main/agreements/EduChat_agreement.pdf)并填写[此问卷](https://a1jkiq3cpx.feishu.cn/share/base/form/shrcn80vIDuXWOOEGrHpvARaBPe)取得授权，商用情况仅用于记录，不会收取任何费用。如使用本项目所含模型及其修改版本提供服务产生误导性或有害性言论，造成不良影响，由服务提供方负责，与本项目无关。
+本项目所含代码采用[Apache 2.0](https://github.com/ICALK/EduChat/blob/main/LICENSE)协议，数据采用[CC BY-NC 4.0](https://github.com/ICALK/EduChat/blob/main/DATA_LICENSE)协议，模型权重采用[GNU AGPL 3.0](https://github.com/ICALK/EduChat/blob/main/MODEL_LICENSE)协议。如需将本项目所含模型用于商业用途或公开部署，请签署[本文件](https://github.com/ICALK/EduChat/blob/main/agreements/EduChat_agreement.pdf)并填写[此问卷](https://a1jkiq3cpx.feishu.cn/share/base/form/shrcn80vIDuXWOOEGrHpvARaBPe)取得授权，商用情况仅用于记录，不会收取任何费用。如使用本项目所含模型及其修改版本提供服务产生误导性或有害性言论，造成不良影响，由服务提供方负责，与本项目无关。
 
 ## :heart: 致谢
 
