@@ -140,9 +140,11 @@ pip install transformers
 python educhat_gradio.py
 ```
 
+启动demo后，您可以将链接分享给朋友，通过网页与EduChat交互
+
 #### Api Demo
 
-你可以运行仓库中的`educhat_api.py`来对外提供一个简单的api服务
+你可以运行仓库中的[demo/educhat_api.py](https://github.com/icalk-nlp/EduChat/blob/main/demo/educhat_api.py)来对外提供一个简单的api服务
 
 ```bash
 python educhat_api.py
@@ -171,22 +173,6 @@ curl -X POST "http://localhost:19324" \
      -H 'Content-Type: application/json' \
      -d '{"prompt": "你是谁？", "uid":"10973cfc-85d4-4b7b-a56a-238f98689d47"}'
 ```
-
-#### 命令行Demo
-
-您可以运行仓库中的`educhat_cli_demo.py`来启动一个简单的命令行Demo：
-
-```bash
-python educhat_cli_demo.py
-```
-
-您可以在该Demo中与EduChat进行多轮对话，输入 `clear` 可以清空对话历史，输入 `stop` 终止Demo。该命令默认使用`educhat-002-7b`单卡运行，您也可以通过参数指定其他模型以及多卡并行，例如：
-
-```bash
-python educhat_cli_demo.py --model_name edunlp/educhat-002-13b --gpu 0,1
-```
-
-![image](https://github.com/ICALK/EduChat/blob/main/examples/example_educhat_cli_demo.png)
 
 
 ## :construction: 未来计划
