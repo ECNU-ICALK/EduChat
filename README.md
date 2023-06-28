@@ -69,15 +69,6 @@
 
 
 ## :robot: 本地部署
-### 硬件要求
-
-下表提供了一个batch size=1时本地部署EduChat进行推理所需的显存大小。**量化模型暂时不支持模型并行。**
-
-| 量化等级 | 加载模型 | 完成一轮对话（估计值） | 达到最大对话长度2048 |
-| -------- | -------- | ---------------------- | -------------------- |
-| FP16     | 31GB     | 42GB                   | 81GB                 |
-| Int8     | 16GB     | 24GB                   | 46GB                 |
-| Int4     | 7.8GB    | 12GB                   | 26GB                 |
 
 ### 下载安装
 1. 下载本仓库内容至本地/远程服务器
@@ -90,7 +81,7 @@ cd EduChat
 2. 创建conda环境
 
 ```bash
-conda create --name educhat python=3.10
+conda create --name educhat python=3.8
 conda activate educhat
 ```
 
