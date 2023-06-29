@@ -44,28 +44,22 @@
 
 **开放问答**：
 
-![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/example_chatedu.gif)
+![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/开放问答.gif)
 
 <details><summary><b>作文批改</b></summary>
 
 
-![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/example_chatedu.gif)
+![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/作文批改.gif)
 
 </details>
 
-<details><summary><b>心理诊断</b></summary>
+<details><summary><b>循循善诱</b></summary>
 
 
-![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/example_chatedu.gif)
-
-</details>
-
-<details><summary><b>心理疏导</b></summary>
-
-
-![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/example_chatedu.gif)
+![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/循循善诱.gif)
 
 </details>
+
 
 
 ## :robot: 本地部署
