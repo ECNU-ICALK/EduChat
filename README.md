@@ -7,7 +7,7 @@
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
 [![Generic badge](https://img.shields.io/badge/🤗-Huggingface%20Repo-577CF6.svg)](https://huggingface.co/ecnu-icalk)
 
-[[中文版](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/main/README.md)]
+<!-- [[中文版](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] -->
 
 ## 目录
 
@@ -16,8 +16,6 @@
 - [本地部署](#robot-本地部署)
   - [下载安装](#下载安装)
   - [使用示例](#使用示例)
-  - [网页Demo](#网页Demo)
-  - [API Demo](#Api Demo)
 - [未来计划](#construction-未来计划)
 - [开源协议](#page_with_curl-开源协议)
 
