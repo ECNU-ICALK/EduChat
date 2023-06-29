@@ -38,6 +38,11 @@
 
 - [**educhat-sft-002-data-osm**](https://huggingface.co/datasets/ecnu-icalk/educhat-sft-002-data-osm): 混合多个开源中英指令、对话数据，并去重后得到，约400w
 
+### 代码
+
+- [数据去重脚本(可选使用GPU加速)](https://github.com/icalk-nlp/EduChat/blob/main/data_deduplication
+)
+
 
 ## :fountain_pen: 介绍
 
