@@ -7,16 +7,13 @@
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
 [![Generic badge](https://img.shields.io/badge/🤗-Huggingface%20Repo-577CF6.svg)](https://huggingface.co/ecnu-icalk)
 
-[[中文版](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/main/README.md)]
+<!-- [[中文版](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] -->
 
 ## 目录
 
 - [开源清单](#spiral_notepad-开源清单)
-  - [模型](#模型)
-  - [数据](#数据)
 - [介绍](#fountain_pen-介绍)
 - [本地部署](#robot-本地部署)
-  - [硬件要求](#硬件要求)
   - [下载安装](#下载安装)
   - [使用示例](#使用示例)
 - [未来计划](#construction-未来计划)
@@ -66,6 +63,13 @@
 
 </details>
 
+<details><summary><b>基础能力</b></summary>
+
+
+![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/基础能力.gif)
+
+</details>
+
 
 
 ## :robot: 本地部署
@@ -110,7 +114,7 @@ pip install transformers
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=256)
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
-您好！我是EduChat，有什么我可以帮助您的吗？ 
+你好！我是EduChat，有什么我可以帮助你的吗？ 
 
 >>> query = query + response + "</s><|prompter|>:给我推荐几本心理相关的书籍</s><|assistant|>:"
 >>> inputs = tokenizer(query, return_tensors="pt", padding=True).to(0)
@@ -127,20 +131,20 @@ pip install transformers
 4.《人性的弱点2》（Dale Carnegie）：这本书是《人性的弱点》的续集，它提供了更多的技巧和策略，帮助读者更好地与人相处。
 
 5.《心理学导论》（David G. Myers）：这本书是一本广泛使用的心理学教材，它涵盖了各种主题，包括感知、记忆、思维、情感和人格。
-希望这些书籍能够帮助您更深入地了解心理学。
+希望这些书籍能够帮助你更深入地了解心理学。
 ```
 
 #### 网页Demo
 
 **Gradio**
 
-您可以运行本仓库中的[demo/educhat_gradio.py](https://github.com/icalk-nlp/EduChat/blob/main/demo/educhat_gradio.py)：
+你可以运行本仓库中的[demo/educhat_gradio.py](https://github.com/icalk-nlp/EduChat/blob/main/demo/educhat_gradio.py)：
 
 ```bash
 python educhat_gradio.py
 ```
 
-启动demo后，您可以将链接分享给朋友，通过网页与EduChat交互
+启动demo后，你可以将链接分享给朋友，通过网页与EduChat交互
 
 #### Api Demo
 
@@ -150,7 +154,7 @@ python educhat_gradio.py
 python educhat_api.py
 ```
 
-启动api服务后，您可以通过网络调用来与EduChat交互
+启动api服务后，你可以通过网络调用来与EduChat交互
 
 ```bash
 ## curl EduChat
@@ -159,13 +163,13 @@ curl -X POST "http://localhost:19324" \
      -d '{"prompt": "你是谁？"}'
 ```
 
-首次调用，您会得到一个api服务返回的uid
+首次调用，你会得到一个api服务返回的uid
 
 ```json
 {"response":"\n<|Worm|>: 你好，有什么我可以帮助你的吗？","history":[["你好","\n<|Worm|>: 你好，有什么我可以帮助你的吗？"]],"status":200,"time":"2023-04-28 09:43:41","uid":"10973cfc-85d4-4b7b-a56a-238f98689d47"}
 ```
 
-您可以在后续的对话中填入该uid来和EduChat进行多轮对话
+你可以在后续的对话中填入该uid来和EduChat进行多轮对话
 
 ```bash
 ## curl EduChat multi-round
@@ -179,9 +183,9 @@ curl -X POST "http://localhost:19324" \
 
 从EduChat-001到EduChat-002的迭代过程中，我们逐步增强了它的中文能力、忠实度、安全度和有帮助性方面的表现。然而，EduChat-002仍然是一个早期模型，我们的旅程也才刚刚开始。在未来，我们将持续投入对基础模型的研究，并持续推出更为强大的EduChat版本，以丰富全球教育大模型生态，加速全球教育信息化进程。
 
-- **课程辅导**：逻辑推理能力是衡量大模型性能的重要指标，我们将通过增大语言模型基座、增强特定训练数据等手段强化EduChat的逻辑推理能力；
-- **个性化辅导**：我们将逐步将语音、图像等模态深度融入EduChat，使其具备跨模态理解和生成能力；
-- **工具调用**：我们期望的EduChat应当是千人千面的，未来我们希望能够给每个人一个独一无二的EduChat，它将在与你的交互中持续学习，伴随你的成长而成长，成为你的专属助手。
+- **逻辑推理**：逻辑推理能力是衡量大模型性能的重要指标，我们计划通过增大语言模型基座、增强特定训练数据等手段强化EduChat的逻辑推理能力；
+- **个性化辅导**：我们期望的EduChat应当是千人千面的，未来我们希望能够给每个人一个独一无二的EduChat，它将在与你的交互中持续学习，伴随你的成长而成长，成为你的专属助手。
+- **工具调用**：语言模型本身具有明显的局限性，例如符号运算能力弱，模型具备的知识无法及时更新等问题，我们计划在后续升级EduChat，使其具备调用外部工具能力，帮助其更好地进行生成。
 
 
 ## :page_with_curl: 开源协议、模型局限、使用限制与免责声明
