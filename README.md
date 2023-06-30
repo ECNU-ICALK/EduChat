@@ -206,7 +206,9 @@ curl -X POST "http://localhost:19324" \
 
 ## :heart: 致谢
 
-- [LLaMa](https://arxiv.org/abs/2302.13971): 基座模型在LLaMa基础上使用中英文数据预训练
+- [LLaMa](https://arxiv.org/abs/2302.13971): EduChat是基于LLaMA的衍生模型
+- [BELLE](https://github.com/LianjiaTech/BELLE): EduChat基于BELLE继续训练
+- [Open Assistant](https://github.com/LAION-AI/Open-Assistant): EduChat参考OA构建模型训练代码
 - [华东师范大学出版社](https://www.ecnupress.com.cn/)：数据支持
 - [竹蜻蜓数据科技（浙江）有限公司](https://www.autopaddle.com//): 开发支持
 - [邱锡鹏教授](https://xpqiu.github.io/): 项目顾问
