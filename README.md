@@ -190,7 +190,7 @@ curl -X POST "http://localhost:19324" \
 
 ## :page_with_curl: 开源协议、模型局限、使用限制与免责声明
 
-本项目所含代码采用[Apache 2.0](https://github.com/ICALK/EduChat/blob/main/LICENSE)协议，数据采用[CC BY-NC 4.0](https://github.com/ICALK/EduChat/blob/main/DATA_LICENSE)协议。
+本项目所含代码采用[Apache 2.0](https://github.com/icalk-nlp/EduChat/blob/main/LICENSE)协议，数据采用[CC BY-NC 4.0](https://github.com/icalk-nlp/EduChat/blob/main/DATA_LICENSE)协议。
 
 尽管我们对EduChat进行了优化，但仍存在以下问题，需要进行改进：
 
