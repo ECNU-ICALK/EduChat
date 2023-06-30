@@ -46,9 +46,16 @@
 
 教育是影响人的身心发展的社会实践活动，旨在把人所固有的或潜在的素质自内而外激发出来。因此，必须贯彻“以人为本”的教育理念，重点关注人的个性化、引导式、身心全面发展。为了更好地助力”以人为本“的教育，华东师范大学计算机科学与技术学院的[EduNLP团队](https://www.educhat.top/#/)探索了针对教育垂直领域的对话大模型[EduChat](https://www.educhat.top)相关项目研发。该项目主要研究以预训练大模型为基底的教育对话大模型相关技术，融合多样化的教育垂直领域数据，辅以指令微调、价值观对齐等方法，提供教育场景下自动出题、作业批改、情感支持、课程辅导、高考咨询等丰富功能，服务于广大老师、学生和家长群体，助力实现因材施教、公平公正、富有温度的智能教育。
 
-**开放问答**：
+**基础能力**：
+
+![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/基础能力.gif)
+
+<details><summary><b>开放问答</b></summary>
+
 
 ![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/开放问答.gif)
+
+</details>
 
 <details><summary><b>作文批改</b></summary>
 
@@ -64,10 +71,10 @@
 
 </details>
 
-<details><summary><b>基础能力</b></summary>
+<details><summary><b>情感支持</b></summary>
 
 
-![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/基础能力.gif)
+![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/情感支持.gif)
 
 </details>
 
