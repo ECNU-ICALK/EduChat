@@ -57,6 +57,13 @@
 
 </details>
 
+<details><summary><b>情感支持</b></summary>
+
+
+![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/情感支持.gif)
+
+</details>
+
 <details><summary><b>作文批改</b></summary>
 
 
@@ -64,19 +71,14 @@
 
 </details>
 
-<details><summary><b>循循善诱</b></summary>
+<details><summary><b>启发式教学</b></summary>
 
 
 ![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/循循善诱.gif)
 
 </details>
 
-<details><summary><b>情感支持</b></summary>
 
-
-![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/情感支持.gif)
-
-</details>
 
 
 
