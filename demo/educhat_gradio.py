@@ -62,31 +62,19 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--model_path", type=str, required=True)
 parser.add_argument("--max_new_tokens", type=int, default=200)
 parser.add_argument("--top_k", type=int, default=40)
-parser.add_argument("--do-sample", type=_strtobool, default=True)
-parser.add_argument("--format", type=str, default="v2")
-parser.add_argument("--8bit", action="store_true", dest="eightbit")
+parser.add_argument("--do_sample", type=_strtobool, default=True)
 parser.add_argument("--system_prefix", type=str, default=None)
 parser.add_argument("--per-digit-tokens", action="store_true")
 
 
-system_prefix = None
-
 args = parser.parse_args()
 
+system_prefix = args.system_prefix
 
 
 print('Loading model...')
-if args.eightbit:
-    model = get_specific_model(
-        args.model_path,
-        load_in_8bit=True,
-        device_map="auto",
-        low_cpu_mem_usage=True,
-        torch_dtype=torch.float16,
-        offload_state_dict=True,
-    )
-else:
-    model = get_specific_model(args.model_path)
+
+model = get_specific_model(args.model_path)
 
 model.half().cuda()
 model.gradient_checkpointing_enable()  # reduce number of stored activations
