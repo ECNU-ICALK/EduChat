@@ -1,23 +1,17 @@
 #!/usr/bin/env python3
 import argparse
-import time
 
 import torch
 import transformers
-from model_training.custom_datasets.formatting import QA_SPECIAL_TOKENS, format_pairs, format_system_prefix
-from model_training.models import get_specific_model
 from model_training.utils import _strtobool
 from tokenizers import pre_tokenizers
 
-from accelerate import init_empty_weights, load_checkpoint_and_dispatch
 from transformers.generation.utils import logger
-from huggingface_hub import snapshot_download
 import mdtex2html
 import gradio as gr
 import argparse
 import warnings
 import torch
-import os
 
 
 logger.setLevel("ERROR")
@@ -26,6 +20,43 @@ warnings.filterwarnings("ignore")
 import warnings
 
 warnings.filterwarnings("ignore")
+
+QA_SPECIAL_TOKENS = {
+    "Question": "<|prompter|>",
+    "Answer": "<|assistant|>",
+    "System": "<|system|>",
+    "StartPrefix": "<|prefix_begin|>",
+    "EndPrefix": "<|prefix_end|>",
+    "InnerThought":"<|inner_thoughts|>",
+    "EndOfThought":"<eot>"
+}
+
+def format_pairs(pairs, eos_token, add_initial_reply_token=False):
+    conversations = [
+        "{}{}{}".format(QA_SPECIAL_TOKENS["Question" if i % 2 == 0 else "Answer"], pairs[i], eos_token)
+        for i in range(len(pairs))
+    ]
+    if add_initial_reply_token:
+        conversations.append(QA_SPECIAL_TOKENS["Answer"])
+    return conversations
+
+def format_system_prefix(prefix, eos_token):
+    return "{}{}{}".format(
+        QA_SPECIAL_TOKENS["System"],
+        prefix,
+        eos_token,
+    )
+
+def get_specific_model(
+    model_name, seq2seqmodel=False, without_head=False, cache_dir=".cache", quantization=False, **kwargs
+):
+    # encoder-decoder support for Flan-T5 like models
+    # for now, we can use an argument but in the future,
+    # we can automate this
+
+    model = transformers.LlamaForCausalLM.from_pretrained(model_name, **kwargs)
+
+    return model
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--model_path", type=str, required=True)
@@ -41,6 +72,7 @@ parser.add_argument("--per-digit-tokens", action="store_true")
 system_prefix = None
 
 args = parser.parse_args()
+
 
 
 print('Loading model...')
