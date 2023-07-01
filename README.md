@@ -219,7 +219,10 @@ EduChat的能力
 你可以运行本仓库中的[demo/educhat_gradio.py](https://github.com/icalk-nlp/EduChat/blob/main/demo/educhat_gradio.py)：
 
 ```bash
-python educhat_gradio.py
+python educhat_gradio.py --model_path /path/to/educhat_model \
+--top_k 50 \
+--do_sample True \
+--max_new_tokens 512
 ```
 
 启动demo后，你可以将链接分享给朋友，通过网页与EduChat交互
