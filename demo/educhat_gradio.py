@@ -176,7 +176,7 @@ def predict(input, chatbot, max_length, top_p, temperature, history):
 
     batch = tokenizer.encode(
         format_system_prefix(system_prefix, tokenizer.eos_token)
-        if system_prefix
+        if system_prefix and len(conversation_history) == 1
         else ""
         + "".join(format_pairs(conversation_history, tokenizer.eos_token, add_initial_reply_token=True)),
         return_tensors="pt",
