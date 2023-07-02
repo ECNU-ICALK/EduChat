@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import argparse
-
 import torch
 import transformers
 from tokenizers import pre_tokenizers
