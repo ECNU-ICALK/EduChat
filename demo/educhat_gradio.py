@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 import argparse
+
 import torch
 import transformers
-from tokenizers import pre_tokenizers
-from transformers.generation.utils import logger
 from distutils.util import strtobool
+from tokenizers import pre_tokenizers
+
+from transformers.generation.utils import logger
 import mdtex2html
 import gradio as gr
 import argparse
@@ -19,6 +21,9 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
+def _strtobool(x):
+    return bool(strtobool(x))
+
 QA_SPECIAL_TOKENS = {
     "Question": "<|prompter|>",
     "Answer": "<|assistant|>",
@@ -28,9 +33,6 @@ QA_SPECIAL_TOKENS = {
     "InnerThought":"<|inner_thoughts|>",
     "EndOfThought":"<eot>"
 }
-
-def _strtobool(x):
-    return bool(strtobool(x))
 
 def format_pairs(pairs, eos_token, add_initial_reply_token=False):
     conversations = [
@@ -64,13 +66,68 @@ parser.add_argument("--model_path", type=str, required=True)
 parser.add_argument("--max_new_tokens", type=int, default=200)
 parser.add_argument("--top_k", type=int, default=40)
 parser.add_argument("--do_sample", type=_strtobool, default=True)
-parser.add_argument("--system_prefix", type=str, default=None)
+# parser.add_argument("--system_prefix", type=str, default=None)
 parser.add_argument("--per-digit-tokens", action="store_true")
 
 
 args = parser.parse_args()
 
-system_prefix = args.system_prefix
+# # 开放问答
+# system_prefix = \
+# "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+# - EduChat是一个由华东师范大学开发的对话式语言模型。
+# EduChat的工具
+# - Web search: Disable.
+# - Calculators: Disable.
+# EduChat的能力
+# - Inner Thought: Disable.
+# 对话主题
+# - General: Enable.
+# - Psychology: Disable.
+# - Socrates: Disable.'''"</s>"
+
+# # 启发式教学
+# system_prefix = \
+# "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+# - EduChat是一个由华东师范大学开发的对话式语言模型。
+# EduChat的工具
+# - Web search: Disable.
+# - Calculators: Disable.
+# EduChat的能力
+# - Inner Thought: Disable.
+# 对话主题
+# - General: Disable.
+# - Psychology: Disable.
+# - Socrates: Enable.'''"</s>"
+
+# 情感支持
+system_prefix = \
+"<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+- EduChat是一个由华东师范大学开发的对话式语言模型。
+EduChat的工具
+- Web search: Disable.
+- Calculators: Disable.
+EduChat的能力
+- Inner Thought: Disable.
+对话主题
+- General: Disable.
+- Psychology: Enable.
+- Socrates: Disable.'''"</s>"
+
+# # 情感支持(with InnerThought)
+# system_prefix = \
+# "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+# - EduChat是一个由华东师范大学开发的对话式语言模型。
+# EduChat的工具
+# - Web search: Disable.
+# - Calculators: Disable.
+# EduChat的能力
+# - Inner Thought: Enable.
+# 对话主题
+# - General: Disable.
+# - Psychology: Enable.
+# - Socrates: Disable.'''"</s>"
+
 
 
 print('Loading model...')
@@ -174,11 +231,14 @@ def predict(input, chatbot, max_length, top_p, temperature, history):
 
     conversation_history.append(query)
 
+    query_str = "".join(format_pairs(conversation_history, tokenizer.eos_token, add_initial_reply_token=True))
+
+    if system_prefix:
+        query_str = system_prefix + query_str
+    print("query:", query_str)
+
     batch = tokenizer.encode(
-        format_system_prefix(system_prefix, tokenizer.eos_token)
-        if system_prefix and len(conversation_history) == 1
-        else ""
-        + "".join(format_pairs(conversation_history, tokenizer.eos_token, add_initial_reply_token=True)),
+        query_str,
         return_tensors="pt",
     )
 
