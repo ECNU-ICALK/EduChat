@@ -3,7 +3,6 @@ import argparse
 
 import torch
 import transformers
-from model_training.utils import _strtobool
 from tokenizers import pre_tokenizers
 
 from transformers.generation.utils import logger
@@ -30,6 +29,9 @@ QA_SPECIAL_TOKENS = {
     "InnerThought":"<|inner_thoughts|>",
     "EndOfThought":"<eot>"
 }
+
+def _strtobool(x):
+    return bool(strtobool(x))
 
 def format_pairs(pairs, eos_token, add_initial_reply_token=False):
     conversations = [
