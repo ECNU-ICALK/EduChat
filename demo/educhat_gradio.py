@@ -4,7 +4,6 @@ import argparse
 import torch
 import transformers
 from tokenizers import pre_tokenizers
-
 from transformers.generation.utils import logger
 import mdtex2html
 import gradio as gr
@@ -83,7 +82,6 @@ model.gradient_checkpointing_enable()  # reduce number of stored activations
 
 print('Loading tokenizer...')
 tokenizer = transformers.LlamaTokenizer.from_pretrained(args.model_path)
-from model_training.custom_datasets.formatting import QA_SPECIAL_TOKENS
 
 tokenizer.add_special_tokens(
             {
