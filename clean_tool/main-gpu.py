@@ -93,6 +93,7 @@ import sys
 
 LANG = sys.argv[1]
 block_size = int(sys.argv[2])
+GPU_num = int(sys.argv[3])
 neigh = 512
 file_path = f"./data/MIX_{LANG}.pt"
 data = pickle.load(open(file_path, "rb"))
@@ -107,7 +108,7 @@ while block_size >= 1:
     block_size //= 4
     from joblib import Parallel, delayed
     if block_size!=0:
-        res = Parallel(n_jobs=8)(delayed(solve_init)(data[i:i + block], 256, i//block % 8) for i in range(0, len(data), block))
+        res = Parallel(n_jobs=GPU_num)(delayed(solve_init)(data[i:i + block], 256, i//block % 8) for i in range(0, len(data), block))
     else:
         res = [solve_init(data,512,0)]
     l = 0
