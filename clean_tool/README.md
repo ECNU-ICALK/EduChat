@@ -4,5 +4,5 @@
 - `cd`到`clean_tool`文件夹中
 - 运行 `python get_emb.py $NAME`
 - 如果您打算使用GPU加速，请运行 `python main-gpu.py $NAME $BLOCKSIZE $GPUNUM`，其中`$BLOCKSIZE`代表去重分块个数（请保证`$BLOCKSIZE`为2^k），`$GPUNUM`代表GPU个数
-- 使用CPU进行去重，请运行 `python main.py $NAME $BLOCKSIZE`，其中`$BLOCKSIZE`代表去重分块个数（请保证`$BLOCKSIZE`为2^k）
+- 使用CPU进行去重，请运行 `python main.py $NAME $BLOCKSIZE`，其中`$BLOCKSIZE`代表去重分块个数（请保证`$BLOCKSIZE`为`2^k`）
 - 去重后数据将保存在`./clean_tool/data/MIX_$NAME.jsonl`中
