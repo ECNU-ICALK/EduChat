@@ -1,23 +1,17 @@
 #!/usr/bin/env python3
 import argparse
-import time
 
 import torch
 import transformers
-from model_training.custom_datasets.formatting import QA_SPECIAL_TOKENS, format_pairs, format_system_prefix
-from model_training.models import get_specific_model
-from model_training.utils import _strtobool
+from distutils.util import strtobool
 from tokenizers import pre_tokenizers
 
-from accelerate import init_empty_weights, load_checkpoint_and_dispatch
 from transformers.generation.utils import logger
-from huggingface_hub import snapshot_download
 import mdtex2html
 import gradio as gr
 import argparse
 import warnings
 import torch
-import os
 
 
 logger.setLevel("ERROR")
@@ -27,41 +21,124 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
+def _strtobool(x):
+    return bool(strtobool(x))
+
+QA_SPECIAL_TOKENS = {
+    "Question": "<|prompter|>",
+    "Answer": "<|assistant|>",
+    "System": "<|system|>",
+    "StartPrefix": "<|prefix_begin|>",
+    "EndPrefix": "<|prefix_end|>",
+    "InnerThought":"<|inner_thoughts|>",
+    "EndOfThought":"<eot>"
+}
+
+def format_pairs(pairs, eos_token, add_initial_reply_token=False):
+    conversations = [
+        "{}{}{}".format(QA_SPECIAL_TOKENS["Question" if i % 2 == 0 else "Answer"], pairs[i], eos_token)
+        for i in range(len(pairs))
+    ]
+    if add_initial_reply_token:
+        conversations.append(QA_SPECIAL_TOKENS["Answer"])
+    return conversations
+
+def format_system_prefix(prefix, eos_token):
+    return "{}{}{}".format(
+        QA_SPECIAL_TOKENS["System"],
+        prefix,
+        eos_token,
+    )
+
+def get_specific_model(
+    model_name, seq2seqmodel=False, without_head=False, cache_dir=".cache", quantization=False, **kwargs
+):
+    # encoder-decoder support for Flan-T5 like models
+    # for now, we can use an argument but in the future,
+    # we can automate this
+
+    model = transformers.LlamaForCausalLM.from_pretrained(model_name, **kwargs)
+
+    return model
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--model_path", type=str, required=True)
 parser.add_argument("--max_new_tokens", type=int, default=200)
 parser.add_argument("--top_k", type=int, default=40)
-parser.add_argument("--do-sample", type=_strtobool, default=True)
-parser.add_argument("--format", type=str, default="v2")
-parser.add_argument("--8bit", action="store_true", dest="eightbit")
-parser.add_argument("--system_prefix", type=str, default=None)
+parser.add_argument("--do_sample", type=_strtobool, default=True)
+# parser.add_argument("--system_prefix", type=str, default=None)
 parser.add_argument("--per-digit-tokens", action="store_true")
 
 
-system_prefix = None
-
 args = parser.parse_args()
+
+# # 开放问答
+# system_prefix = \
+# "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+# - EduChat是一个由华东师范大学开发的对话式语言模型。
+# EduChat的工具
+# - Web search: Disable.
+# - Calculators: Disable.
+# EduChat的能力
+# - Inner Thought: Disable.
+# 对话主题
+# - General: Enable.
+# - Psychology: Disable.
+# - Socrates: Disable.'''"</s>"
+
+# # 启发式教学
+# system_prefix = \
+# "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+# - EduChat是一个由华东师范大学开发的对话式语言模型。
+# EduChat的工具
+# - Web search: Disable.
+# - Calculators: Disable.
+# EduChat的能力
+# - Inner Thought: Disable.
+# 对话主题
+# - General: Disable.
+# - Psychology: Disable.
+# - Socrates: Enable.'''"</s>"
+
+# 情感支持
+system_prefix = \
+"<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+- EduChat是一个由华东师范大学开发的对话式语言模型。
+EduChat的工具
+- Web search: Disable.
+- Calculators: Disable.
+EduChat的能力
+- Inner Thought: Disable.
+对话主题
+- General: Disable.
+- Psychology: Enable.
+- Socrates: Disable.'''"</s>"
+
+# # 情感支持(with InnerThought)
+# system_prefix = \
+# "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+# - EduChat是一个由华东师范大学开发的对话式语言模型。
+# EduChat的工具
+# - Web search: Disable.
+# - Calculators: Disable.
+# EduChat的能力
+# - Inner Thought: Enable.
+# 对话主题
+# - General: Disable.
+# - Psychology: Enable.
+# - Socrates: Disable.'''"</s>"
+
 
 
 print('Loading model...')
-if args.eightbit:
-    model = get_specific_model(
-        args.model_path,
-        load_in_8bit=True,
-        device_map="auto",
-        low_cpu_mem_usage=True,
-        torch_dtype=torch.float16,
-        offload_state_dict=True,
-    )
-else:
-    model = get_specific_model(args.model_path)
+
+model = get_specific_model(args.model_path)
 
 model.half().cuda()
 model.gradient_checkpointing_enable()  # reduce number of stored activations
 
 print('Loading tokenizer...')
 tokenizer = transformers.LlamaTokenizer.from_pretrained(args.model_path)
-from model_training.custom_datasets.formatting import QA_SPECIAL_TOKENS
 
 tokenizer.add_special_tokens(
             {
@@ -154,11 +231,14 @@ def predict(input, chatbot, max_length, top_p, temperature, history):
 
     conversation_history.append(query)
 
+    query_str = "".join(format_pairs(conversation_history, tokenizer.eos_token, add_initial_reply_token=True))
+
+    if system_prefix:
+        query_str = system_prefix + query_str
+    print("query:", query_str)
+
     batch = tokenizer.encode(
-        format_system_prefix(system_prefix, tokenizer.eos_token)
-        if system_prefix
-        else ""
-        + "".join(format_pairs(conversation_history, tokenizer.eos_token, add_initial_reply_token=True)),
+        query_str,
         return_tensors="pt",
     )
 

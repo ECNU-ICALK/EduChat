@@ -78,7 +78,7 @@ import sys
 LANG = sys.argv[1]
 block_size = int(sys.argv[2])
 neigh = 512
-file_path = f"./opensource_data/MIX_{LANG}.pt"
+file_path = f"./data/MIX_{LANG}.pt"
 data = pickle.load(open(file_path,"rb"))
 
 while block_size>1:

@@ -15,10 +15,7 @@ def solve(model,path):
     a = []
     b = []
     for i in range(len(data)):
-        if isinstance(data[i],str):
-            pos = data[i].find("User：",1)
-            nd = data[i][:pos]
-        elif "INSTRUCTION" in data[i]:
+        if "INSTRUCTION" in data[i]:
             nd = "User: "+data[i]["INSTRUCTION"]+"\n Assistant:"+data[i]["RESPONSE"]
         else:
             if len(data[i]["thread"]["text"])==0:
@@ -42,7 +39,7 @@ import sys
 LANG = sys.argv[1]
 
 
-for root, dirs, files in os.walk(f'./opensource_data/{LANG}/'):
+for root, dirs, files in os.walk(f'./data/{LANG}/'):
     # 遍历当前目录下的所有文件
     for file in files:
         # 检查文件扩展名是否为JSON
@@ -53,4 +50,4 @@ for root, dirs, files in os.walk(f'./opensource_data/{LANG}/'):
 
 
 import pickle
-pickle.dump(res,open(f"./opensource_data/MIX_{LANG}.pt","wb"))
+pickle.dump(res,open(f"./data/MIX_{LANG}.pt","wb"))

@@ -24,15 +24,15 @@
 ## :spiral_notepad: 开源清单
 
 ### 模型
-
+- **educhat-search-002-7b**（预计7.5开源）：在**educhat-sft-002-7b**基础上加入搜索功能
 - [**educhat-sft-002-7b**](https://huggingface.co/ecnu-icalk/educhat-sft-002-7b)：在educhat-base-002-7b基础上，使用我们构建的教育领域多技能数据微调后得到
 - [**educhat-base-002-7b**](https://huggingface.co/ecnu-icalk/educhat-base-002-7b)：使用educhat-sft-002-data-osm数据训练得到
-- [**educhat-sft-002-13b**](https://huggingface.co/ecnu-icalk/educhat-sft-002-13b)：训练方法与educhat-sft-002-7b相同，模型大小升级为13B
-- [**educhat-base-002-13b**](https://huggingface.co/butyuhao/educhat-base-002-13b)：训练方法与educhat-base-002-7b相同，模型大小升级为13B
+- **educhat-sft-002-13b**（预计7.7开源）：训练方法与educhat-sft-002-7b相同，模型大小升级为13B
+- **educhat-base-002-13b**（预计7.2开源）：训练方法与educhat-base-002-7b相同，模型大小升级为13B
 
 ### 数据
 
-- [**educhat-sft-002-data-osm**](https://huggingface.co/datasets/ecnu-icalk/educhat-sft-002-data-osm): 混合多个开源中英指令、对话数据，并去重后得到，约400w
+- [**educhat-sft-002-data-osm** （预计7.2开源）](https://huggingface.co/datasets/ecnu-icalk/educhat-sft-002-data-osm): 混合多个开源中英指令、对话数据，并去重后得到，约400w
 
 ### 代码
 
@@ -109,6 +109,74 @@ pip install transformers
 
 ### 使用示例
 
+#### 输入格式
+
+使用EduChat时的输入格式为system_prompt + query。根据所需功能不同从以下的system_prompt中选择。base模型直接使用query，无需使用system_prompt。
+
+开放问答
+```
+system_prompt = \
+"<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+- EduChat是一个由华东师范大学开发的对话式语言模型。
+EduChat的工具
+- Web search: Disable.
+- Calculators: Disable.
+EduChat的能力
+- Inner Thought: Disable.
+对话主题
+- General: Enable.
+- Psychology: Disable.
+- Socrates: Disable.'''"</s>"
+```
+
+启发式教学
+```
+system_prompt = \
+"<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+- EduChat是一个由华东师范大学开发的对话式语言模型。
+EduChat的工具
+- Web search: Disable.
+- Calculators: Disable.
+EduChat的能力
+- Inner Thought: Disable.
+对话主题
+- General: Disable.
+- Psychology: Disable.
+- Socrates: Enable.'''"</s>"
+```
+
+情感支持
+```
+system_prompt = \
+"<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+- EduChat是一个由华东师范大学开发的对话式语言模型。
+EduChat的工具
+- Web search: Disable.
+- Calculators: Disable.
+EduChat的能力
+- Inner Thought: Disable.
+对话主题
+- General: Disable.
+- Psychology: Enable.
+- Socrates: Disable.'''"</s>"
+```
+
+情感支持(with InnerThought)
+```
+system_prompt = \
+"<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+- EduChat是一个由华东师范大学开发的对话式语言模型。
+EduChat的工具
+- Web search: Disable.
+- Calculators: Disable.
+EduChat的能力
+- Inner Thought: Enable.
+对话主题
+- General: Disable.
+- Psychology: Enable.
+- Socrates: Disable.'''"</s>"
+```
+
 #### 单卡部署
 
 以下是一个简单的调用`educhat-sft-002-7b`生成对话的示例代码，可在单张A100/A800或CPU运行，使用FP16精度时约占用15GB显存：
@@ -119,7 +187,7 @@ pip install transformers
 >>> model = LlamaForCausalLM.from_pretrained("ecnu-icalk/educhat-sft-002-7b",torch_dtype=torch.float16,).half().cuda()
 >>> model = model.eval()
 
->>> query = "<|prompter|>你好</s><|assistant|>"
+>>> query = system_prompt + "<|prompter|>你好</s><|assistant|>"
 >>> inputs = tokenizer(query, return_tensors="pt", padding=True).to(0)
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=256)
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
@@ -151,7 +219,10 @@ pip install transformers
 你可以运行本仓库中的[demo/educhat_gradio.py](https://github.com/icalk-nlp/EduChat/blob/main/demo/educhat_gradio.py)：
 
 ```bash
-python educhat_gradio.py
+python educhat_gradio.py --model_path /path/to/educhat_model \
+--top_k 50 \
+--do_sample True \
+--max_new_tokens 512
 ```
 
 启动demo后，你可以将链接分享给朋友，通过网页与EduChat交互
@@ -195,7 +266,7 @@ curl -X POST "http://localhost:19324" \
 
 - **逻辑推理**：逻辑推理能力是衡量大模型性能的重要指标，我们计划通过增大语言模型基座、增强特定训练数据等手段强化EduChat的逻辑推理能力；
 - **个性化辅导**：我们期望的EduChat应当是千人千面的，未来我们希望能够给每个人一个独一无二的EduChat，它将在与你的交互中持续学习，伴随你的成长而成长，成为你的专属助手。
-- **工具调用**：语言模型本身具有明显的局限性，例如符号运算能力弱，模型具备的知识无法及时更新等问题，我们计划在后续升级EduChat，使其具备调用外部工具能力，帮助其更好地进行生成。
+- **工具调用**：语言模型本身具有明显的局限性，例如符号运算能力弱，我们计划在后续升级EduChat，使其具备调用外部工具能力，帮助其更好地进行生成。
 
 
 ## :page_with_curl: 开源协议、模型局限、使用限制与免责声明
