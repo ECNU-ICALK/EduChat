@@ -37,7 +37,7 @@
 
 ### 代码
 
-数据质量对于模型性能至关重要，为此，我们开源了数据清洗工具CleanTool(可选使用GPU加速)，包括数据去重，低质量数据删除等功能，未来将继续不断完善。
+数据质量对于模型性能至关重要，为此，我们开源了数据清洗工具CleanTool(可选使用GPU Turbo Speed Up)，包括数据去重，低质量数据删除等功能，未来将继续不断完善。
 
 - [CleanTool](https://github.com/icalk-nlp/EduChat/blob/main/clean_tool
 )
