@@ -112,7 +112,7 @@ pip install transformers
 
 #### 输入格式
 
-使用EduChat时的输入格式为system_prompt + query。根据所需功能不同从以下的system_prompt中选择。base模型直接使用query，无需使用system_prompt。
+使用EduChat时，sft模型的输入格式为system_prompt + query。根据所需功能不同从以下的system_prompt中选择。base模型在使用时不需要添加system_prompt。
 
 开放问答
 ```
