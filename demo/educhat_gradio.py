@@ -17,12 +17,13 @@ import torch
 logger.setLevel("ERROR")
 warnings.filterwarnings("ignore")
 
-import warnings
 
 warnings.filterwarnings("ignore")
 
+
 def _strtobool(x):
     return bool(strtobool(x))
+
 
 QA_SPECIAL_TOKENS = {
     "Question": "<|prompter|>",
@@ -30,18 +31,21 @@ QA_SPECIAL_TOKENS = {
     "System": "<|system|>",
     "StartPrefix": "<|prefix_begin|>",
     "EndPrefix": "<|prefix_end|>",
-    "InnerThought":"<|inner_thoughts|>",
-    "EndOfThought":"<eot>"
+    "InnerThought": "<|inner_thoughts|>",
+    "EndOfThought": "<eot>"
 }
+
 
 def format_pairs(pairs, eos_token, add_initial_reply_token=False):
     conversations = [
-        "{}{}{}".format(QA_SPECIAL_TOKENS["Question" if i % 2 == 0 else "Answer"], pairs[i], eos_token)
+        "{}{}{}".format(
+            QA_SPECIAL_TOKENS["Question" if i % 2 == 0 else "Answer"], pairs[i], eos_token)
         for i in range(len(pairs))
     ]
     if add_initial_reply_token:
         conversations.append(QA_SPECIAL_TOKENS["Answer"])
     return conversations
+
 
 def format_system_prefix(prefix, eos_token):
     return "{}{}{}".format(
@@ -49,6 +53,7 @@ def format_system_prefix(prefix, eos_token):
         prefix,
         eos_token,
     )
+
 
 def get_specific_model(
     model_name, seq2seqmodel=False, without_head=False, cache_dir=".cache", quantization=False, **kwargs
@@ -60,6 +65,7 @@ def get_specific_model(
     model = transformers.LlamaForCausalLM.from_pretrained(model_name, **kwargs)
 
     return model
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--model_path", type=str, required=True)
@@ -102,7 +108,7 @@ args = parser.parse_args()
 
 # 情感支持
 system_prefix = \
-"<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+    "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
 - EduChat是一个由华东师范大学开发的对话式语言模型。
 EduChat的工具
 - Web search: Disable.
@@ -129,7 +135,6 @@ EduChat的能力
 # - Socrates: Disable.'''"</s>"
 
 
-
 print('Loading model...')
 
 model = get_specific_model(args.model_path)
@@ -141,22 +146,24 @@ print('Loading tokenizer...')
 tokenizer = transformers.LlamaTokenizer.from_pretrained(args.model_path)
 
 tokenizer.add_special_tokens(
-            {
-                "pad_token": "</s>",
-                "eos_token": "</s>",
-                "sep_token": "<s>",
-            }
-        )
+    {
+        "pad_token": "</s>",
+        "eos_token": "</s>",
+        "sep_token": "<s>",
+    }
+)
 additional_special_tokens = (
-        []
-        if "additional_special_tokens" not in tokenizer.special_tokens_map
-        else tokenizer.special_tokens_map["additional_special_tokens"]
-    )
-additional_special_tokens = list(set(additional_special_tokens + list(QA_SPECIAL_TOKENS.values())))
+    []
+    if "additional_special_tokens" not in tokenizer.special_tokens_map
+    else tokenizer.special_tokens_map["additional_special_tokens"]
+)
+additional_special_tokens = list(
+    set(additional_special_tokens + list(QA_SPECIAL_TOKENS.values())))
 
 print("additional_special_tokens:", additional_special_tokens)
 
-tokenizer.add_special_tokens({"additional_special_tokens": additional_special_tokens})
+tokenizer.add_special_tokens(
+    {"additional_special_tokens": additional_special_tokens})
 
 if args.per_digit_tokens:
     tokenizer._tokenizer.pre_processor = pre_tokenizers.Digits(True)
@@ -231,7 +238,8 @@ def predict(input, chatbot, max_length, top_p, temperature, history):
 
     conversation_history.append(query)
 
-    query_str = "".join(format_pairs(conversation_history, tokenizer.eos_token, add_initial_reply_token=True))
+    query_str = "".join(format_pairs(conversation_history,
+                        tokenizer.eos_token, add_initial_reply_token=True))
 
     if system_prefix:
         query_str = system_prefix + query_str
@@ -245,7 +253,8 @@ def predict(input, chatbot, max_length, top_p, temperature, history):
     with torch.cuda.amp.autocast():
         out = model.generate(
             input_ids=batch.to(model.device),
-            max_new_tokens=args.max_new_tokens, # The maximum numbers of tokens to generate, ignoring the number of tokens in the prompt.
+            # The maximum numbers of tokens to generate, ignoring the number of tokens in the prompt.
+            max_new_tokens=args.max_new_tokens,
             do_sample=args.do_sample,
             max_length=max_length,
             top_k=args.top_k,
@@ -266,7 +275,6 @@ def predict(input, chatbot, max_length, top_p, temperature, history):
 
     with open("./educhat_query_record.txt", 'a+') as f:
         f.write(str(conversation_history) + '\n')
-
 
     chatbot[-1] = (query, parse_text(response))
     history = history + [(query, response)]
