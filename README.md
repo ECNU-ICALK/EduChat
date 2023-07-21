@@ -9,6 +9,7 @@
 [![Generic badge](https://img.shields.io/badge/🤗-Huggingface%20Repo-577CF6.svg)](https://huggingface.co/ecnu-icalk)
 
 <!-- [[中文版](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] -->
+公测地址：https://educhat.xiaoi.com/
 
 ## 目录
 
@@ -25,7 +26,7 @@
 ## :spiral_notepad: 开源清单
 
 ### 模型
-** 注意：使用前按照模型介绍页面中的使用方法部分解密。**
+**注意：使用前按照模型介绍页面中的使用方法部分解密**
 - **educhat-search-002-7b**（近期开源）：在**educhat-sft-002-7b**基础上加入搜索功能
 - [**educhat-sft-002-7b**](https://huggingface.co/ecnu-icalk/educhat-sft-002-7b)：在educhat-base-002-7b基础上，使用我们构建的教育领域多技能数据微调后得到
 - [**educhat-base-002-7b**](https://huggingface.co/ecnu-icalk/educhat-base-002-7b)：使用educhat-sft-002-data-osm数据训练得到
