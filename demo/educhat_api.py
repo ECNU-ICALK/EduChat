@@ -9,6 +9,62 @@ from transformers import LlamaForCausalLM, LlamaTokenizer
 import requests
 import re
 
+# # 开放问答
+# system_prefix = \
+# "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+# - EduChat是一个由华东师范大学开发的对话式语言模型。
+# EduChat的工具
+# - Web search: Disable.
+# - Calculators: Disable.
+# EduChat的能力
+# - Inner Thought: Disable.
+# 对话主题
+# - General: Enable.
+# - Psychology: Disable.
+# - Socrates: Disable.'''"</s>"
+
+# # 启发式教学
+# system_prefix = \
+# "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+# - EduChat是一个由华东师范大学开发的对话式语言模型。
+# EduChat的工具
+# - Web search: Disable.
+# - Calculators: Disable.
+# EduChat的能力
+# - Inner Thought: Disable.
+# 对话主题
+# - General: Disable.
+# - Psychology: Disable.
+# - Socrates: Enable.'''"</s>"
+
+# 情感支持
+system_prefix = \
+    "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+- EduChat是一个由华东师范大学开发的对话式语言模型。
+EduChat的工具
+- Web search: Disable.
+- Calculators: Disable.
+EduChat的能力
+- Inner Thought: Disable.
+对话主题
+- General: Disable.
+- Psychology: Enable.
+- Socrates: Disable.'''"</s>"
+
+# # 情感支持(with InnerThought)
+# system_prefix = \
+# "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+# - EduChat是一个由华东师范大学开发的对话式语言模型。
+# EduChat的工具
+# - Web search: Disable.
+# - Calculators: Disable.
+# EduChat的能力
+# - Inner Thought: Enable.
+# 对话主题
+# - General: Disable.
+# - Psychology: Enable.
+# - Socrates: Disable.'''"</s>"
+
 session = requests.Session()
 # 正则提取摘要和链接
 title_pattern = re.compile('<a.target=..blank..target..(.*?)</a>')
@@ -111,7 +167,7 @@ async def chat(request: Request):
             prefix += "".join(histories)
             # add sep at the end
         prefix += f"{ChatRole.prompter}{human_input}</s>{ChatRole.assistant}"
-        print(prefix)
+        prefix = system_prefix + prefix
         inputs = tokenizer(prefix, return_tensors="pt", padding=True).to(0)
         if "token_type_ids" in inputs:
             del inputs["token_type_ids"]
