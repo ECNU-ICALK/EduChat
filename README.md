@@ -111,6 +111,8 @@ conda activate educhat
 pip install transformers
 # 项目中用到LlamaTokenizer的需要安装这个
 pip install SentencePiece
+# api demo 依赖
+pip install fastapi uvicorn
 ```
 
 ### 使用示例
