@@ -113,6 +113,8 @@ pip install transformers
 pip install SentencePiece
 # api demo 依赖
 pip install fastapi uvicorn
+# gradio demo 依赖
+pip install mdtex2html gradio
 ```
 
 ### 使用示例
