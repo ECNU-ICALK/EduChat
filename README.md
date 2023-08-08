@@ -106,8 +106,11 @@ conda activate educhat
 
 ```bash
 # 首先安装pytorch，安装方法请自行百度。
+# https://pytorch.org/get-started/locally/ 官方地址
 # 然后安装最新版本的transformers
 pip install transformers
+# 项目中用到LlamaTokenizer的需要安装这个
+pip install SentencePiece
 ```
 
 ### 使用示例
