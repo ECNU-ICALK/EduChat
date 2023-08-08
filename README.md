@@ -15,6 +15,7 @@
 
 - [开源清单](#spiral_notepad-开源清单)
 - [介绍](#fountain_pen-介绍)
+- [引用](#引用)
 - [本地部署](#robot-本地部署)
   - [下载安装](#下载安装)
   - [使用示例](#使用示例)
@@ -44,6 +45,20 @@
 - [CleanTool](https://github.com/icalk-nlp/EduChat/blob/main/clean_tool
 )
 
+## 引用
+EduChat: A Large-Scale Language Model-based Chatbot System for Intelligent Education
+
+链接：https://arxiv.org/abs/2308.02773
+
+如果使用本项目的代码、数据或模型，请引用本项目：
+```
+@article{educhat2023,
+  title={EduChat: A Large-Scale Language Model-based Chatbot System for Intelligent Education},
+  author={Yuhao Dan, Zhikai Lei, Yiyang Gu, Yong Li, Jianghao Yin, Jiaju Lin, Linhao Ye, Zhiyan Tie, Yougen Zhou, Yilei Wang, Aimin Zhou, Ze Zhou, Qin Chen, Jie Zhou, Liang He, Xipeng Qiu},
+  journal={arXiv preprint arXiv:2308.02773},
+  year={2023}
+}
+```
 
 ## :fountain_pen: 介绍
 
