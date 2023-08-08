@@ -50,7 +50,7 @@ EduChat: A Large-Scale Language Model-based Chatbot System for Intelligent Educa
 
 链接：https://arxiv.org/abs/2308.02773
 
-如果使用本项目的代码、数据或模型，请引用本项目：
+如果使用本项目的代码、数据或模型，请引用本项目论文：
 ```
 @article{educhat2023,
   title={EduChat: A Large-Scale Language Model-based Chatbot System for Intelligent Education},
