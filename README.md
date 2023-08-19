@@ -9,10 +9,9 @@
 [![Generic badge](https://img.shields.io/badge/🤗-Huggingface%20Repo-577CF6.svg)](https://huggingface.co/ecnu-icalk)
 
 <!-- [[中文版](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] -->
-内测地址：https://www.educhat.top/ 
-内测申请：请邮件dan_yh@stu.ecnu.edu.cn，以“EduChat内测申请+单位”作为邮件标题，邮件内容中写明用途。
-
-公测地址：https://educhat.xiaoi.com/
+- 内测地址：https://www.educhat.top/ 
+  - 内测申请：请邮件dan_yh@stu.ecnu.edu.cn，以“EduChat内测申请+单位”作为邮件标题，邮件内容中写明用途。
+- 公测地址：https://educhat.xiaoi.com/
 
 ## 目录
 
