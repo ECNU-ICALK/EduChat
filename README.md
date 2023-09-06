@@ -30,7 +30,8 @@
 
 ### 模型
 **注意：使用前按照模型介绍页面中的使用方法部分解密**
-- **educhat-search-002-7b**（近期开源）：在**educhat-sft-002-7b**基础上加入搜索功能
+- [**educhat-sft-002-13b-baichuan**](https://huggingface.co/ecnu-icalk/educhat-sft-002-13b-baichuan)：在educhat-base-002-13b-baichuan基础上，使用我们构建的教育领域多技能数据微调后得到
+- [**educhat-base-002-13b-baichuan**]()：使用educhat-sft-002-data-osm数据训练得到
 - [**educhat-sft-002-7b**](https://huggingface.co/ecnu-icalk/educhat-sft-002-7b)：在educhat-base-002-7b基础上，使用我们构建的教育领域多技能数据微调后得到
 - [**educhat-base-002-7b**](https://huggingface.co/ecnu-icalk/educhat-base-002-7b)：使用educhat-sft-002-data-osm数据训练得到
 - [**educhat-sft-002-13b**](https://huggingface.co/ecnu-icalk/educhat-sft-002-13b)：训练方法与educhat-sft-002-7b相同，模型大小升级为13B
