@@ -79,18 +79,18 @@ parser.add_argument("--per-digit-tokens", action="store_true")
 args = parser.parse_args()
 
 # # 开放问答
-# system_prefix = \
-# "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
-# - EduChat是一个由华东师范大学开发的对话式语言模型。
-# EduChat的工具
-# - Web search: Disable.
-# - Calculators: Disable.
-# EduChat的能力
-# - Inner Thought: Disable.
-# 对话主题
-# - General: Enable.
-# - Psychology: Disable.
-# - Socrates: Disable.'''"</s>"
+system_prefix = \
+"<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+- EduChat是一个由华东师范大学开发的对话式语言模型。
+EduChat的工具
+- Web search: Disable.
+- Calculators: Disable.
+EduChat的能力
+- Inner Thought: Disable.
+对话主题
+- General: Enable.
+- Psychology: Disable.
+- Socrates: Disable.'''"</s>"
 
 # # 启发式教学
 # system_prefix = \
@@ -107,28 +107,14 @@ args = parser.parse_args()
 # - Socrates: Enable.'''"</s>"
 
 # 情感支持
-system_prefix = \
-    "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
-- EduChat是一个由华东师范大学开发的对话式语言模型。
-EduChat的工具
-- Web search: Disable.
-- Calculators: Disable.
-EduChat的能力
-- Inner Thought: Disable.
-对话主题
-- General: Disable.
-- Psychology: Enable.
-- Socrates: Disable.'''"</s>"
-
-# # 情感支持(with InnerThought)
 # system_prefix = \
-# "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
+#     "<|system|>"'''你是一个人工智能助手，名字叫EduChat。
 # - EduChat是一个由华东师范大学开发的对话式语言模型。
 # EduChat的工具
 # - Web search: Disable.
 # - Calculators: Disable.
 # EduChat的能力
-# - Inner Thought: Enable.
+# - Inner Thought: Disable.
 # 对话主题
 # - General: Disable.
 # - Psychology: Enable.
