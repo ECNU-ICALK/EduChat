@@ -441,8 +441,8 @@ def initialize_model_and_tokenizer(args):
     from vllm import LLM, SamplingParams
     sampling_params = SamplingParams(temperature=0.8, top_p=0.4,max_tokens=1024)
     llm = LLM(model=path, tensor_parallel_size=1, trust_remote_code=True)
-    from tokenization_baichuan import BaichuanTokenizer
-    tokenizer = BaichuanTokenizer.from_pretrained(path)
+    from transformers import AutoTokenizer
+    tokenizer = AutoTokenizer.from_pretrained(path)
 
 def load_components():
     global nlp_en,nlp_zh,ft_en,ft_zh,measure_en,measure_zh
