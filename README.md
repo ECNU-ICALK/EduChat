@@ -36,6 +36,9 @@
 - [**educhat-base-002-7b**](https://huggingface.co/ecnu-icalk/educhat-base-002-7b)：使用educhat-sft-002-data-osm数据训练得到
 - [**educhat-sft-002-13b**](https://huggingface.co/ecnu-icalk/educhat-sft-002-13b)：训练方法与educhat-sft-002-7b相同，模型大小升级为13B
 - [**educhat-base-002-13b**](https://huggingface.co/ecnu-icalk/educhat-base-002-13b)：训练方法与educhat-base-002-7b相同，模型大小升级为13B
+- [**educhat-sft-002-1.8b-qwen1.5**](https://huggingface.co/ecnu-icalk/educhat-sft-002-1.8b-qwen1.5)：基于Qwen1.5 1.8B训练得到
+- [**educhat-sft-002-14b-qwen1.5**](https://huggingface.co/ecnu-icalk/educhat-sft-002-14b-qwen1.5)：基于Qwen1.5 14B训练得到
+- [**educhat-sft-002-32b-qwen1.5**](https://huggingface.co/ecnu-icalk/educhat-sft-002-32b-qwen1.5)：基于Qwen1.5 32B训练得到
 
 ### 数据
 
@@ -58,8 +61,8 @@ EduChat: A Large-Scale Language Model-based Chatbot System for Intelligent Educa
 @article{educhat2023,
   title={EduChat: A Large-Scale Language Model-based Chatbot System for Intelligent Education},
   author={Yuhao Dan, Zhikai Lei, Yiyang Gu, Yong Li, Jianghao Yin, Jiaju Lin, Linhao Ye, Zhiyan Tie, Yougen Zhou, Yilei Wang, Aimin Zhou, Ze Zhou, Qin Chen, Jie Zhou, Liang He, Xipeng Qiu},
-  journal={arXiv preprint arXiv:2308.02773},
-  year={2023}
+  journal={CCKS 2024},
+  year={2024}
 }
 ```
 
