@@ -34,19 +34,19 @@
 
 ### 模型
 **注意：使用前按照模型介绍页面中的使用方法部分解密**
-- [**educhat-sft-002-13b-baichuan**](https://huggingface.co/ecnu-icalk/educhat-sft-002-13b-baichuan)：在educhat-base-002-13b-baichuan基础上，使用我们构建的教育领域多技能数据微调后得到
-- [**educhat-base-002-13b-baichuan**]()：使用educhat-sft-002-data-osm数据训练得到
-- [**educhat-sft-002-7b**](https://huggingface.co/ecnu-icalk/educhat-sft-002-7b)：在educhat-base-002-7b基础上，使用我们构建的教育领域多技能数据微调后得到
-- [**educhat-base-002-7b**](https://huggingface.co/ecnu-icalk/educhat-base-002-7b)：使用educhat-sft-002-data-osm数据训练得到
-- [**educhat-sft-002-13b**](https://huggingface.co/ecnu-icalk/educhat-sft-002-13b)：训练方法与educhat-sft-002-7b相同，模型大小升级为13B
-- [**educhat-base-002-13b**](https://huggingface.co/ecnu-icalk/educhat-base-002-13b)：训练方法与educhat-base-002-7b相同，模型大小升级为13B
-- [**educhat-sft-002-1.8b-qwen1.5**](https://huggingface.co/ecnu-icalk/educhat-sft-002-1.8b-qwen1.5)：基于Qwen1.5 1.8B训练得到
-- [**educhat-sft-002-14b-qwen1.5**](https://huggingface.co/ecnu-icalk/educhat-sft-002-14b-qwen1.5)：基于Qwen1.5 14B训练得到
-- [**educhat-sft-002-32b-qwen1.5**](https://huggingface.co/ecnu-icalk/educhat-sft-002-32b-qwen1.5)：基于Qwen1.5 32B训练得到
-- [**educhat-sft-003-32b-qwen2.5**](https://huggingface.co/ecnu-icalk/educhat-sft-003-32b-qwen2.5)：基于Qwen2.5 32B训练得到
-- [**educhat-sft-003-72b-qwen2.5**](https://huggingface.co/ecnu-icalk/educhat-sft-003-72b-qwen2.5)：基于Qwen2.5 72B训练得到
-- [**educhat-r1-001-32b-qwen3.0**](https://huggingface.co/ecnu-icalk/educhat-r1-001-32b-qwen3.0)：基于Qwen3.0 32B训练得到
-- [**educhat-r1-001-8b-qwen3.0**](https://huggingface.co/ecnu-icalk/educhat-r1-001-8b-qwen3.0)：基于Qwen3.0 8B训练得到
+- [**EduChat 0.1** (educhat-sft-002-13b-baichuan)](https://huggingface.co/ecnu-icalk/educhat-sft-002-13b-baichuan)：在educhat-base-002-13b-baichuan基础上，使用我们构建的教育领域多技能数据微调后得到
+- [**EduChat 0.1** (educhat-base-002-13b-baichuan)]()：使用educhat-sft-002-data-osm数据训练得到
+- [**EduChat 0.1** (educhat-sft-002-7b)](https://huggingface.co/ecnu-icalk/educhat-sft-002-7b)：在educhat-base-002-7b基础上，使用我们构建的教育领域多技能数据微调后得到
+- [**EduChat 0.1** (educhat-base-002-7b)](https://huggingface.co/ecnu-icalk/educhat-base-002-7b)：使用educhat-sft-002-data-osm数据训练得到
+- [**EduChat 0.1** (educhat-sft-002-13b)](https://huggingface.co/ecnu-icalk/educhat-sft-002-13b)：训练方法与educhat-sft-002-7b相同，模型大小升级为13B
+- [**EduChat 0.1** (educhat-base-002-13b)](https://huggingface.co/ecnu-icalk/educhat-base-002-13b)：训练方法与educhat-base-002-7b相同，模型大小升级为13B
+- [**EduChat 1.0** (educhat-sft-002-1.8b-qwen1.5)](https://huggingface.co/ecnu-icalk/educhat-sft-002-1.8b-qwen1.5)：基于Qwen1.5 1.8B训练得到
+- [**EduChat 1.0** (educhat-sft-002-14b-qwen1.5)](https://huggingface.co/ecnu-icalk/educhat-sft-002-14b-qwen1.5)：基于Qwen1.5 14B训练得到
+- [**EduChat 1.0** (educhat-sft-002-32b-qwen1.5)](https://huggingface.co/ecnu-icalk/educhat-sft-002-32b-qwen1.5)：基于Qwen1.5 32B训练得到
+- [**EduChat 2.0** (educhat-sft-003-32b-qwen2.5)](https://huggingface.co/ecnu-icalk/educhat-sft-003-32b-qwen2.5)：基于Qwen2.5 32B训练得到
+- [**EduChat 2.0** (educhat-sft-003-72b-qwen2.5)](https://huggingface.co/ecnu-icalk/educhat-sft-003-72b-qwen2.5)：基于Qwen2.5 72B训练得到
+- [**EduChat-R1** (educhat-r1-001-32b-qwen3.0)](https://huggingface.co/ecnu-icalk/educhat-r1-001-32b-qwen3.0)：基于Qwen3.0 32B训练得到
+- [**EduChat-R1** (educhat-r1-001-8b-qwen3.0)](https://huggingface.co/ecnu-icalk/educhat-r1-001-8b-qwen3.0)：基于Qwen3.0 8B训练得到
 
 ### 数据
 
