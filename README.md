@@ -313,7 +313,7 @@ curl -X POST "http://localhost:19324" \
 
   本团队提出的Shell框架具有很强的定制性和通用性，不仅可适应多种场景，也可在教育价值观在有调整的时候加以灵活定制，为教育大模型在广泛应用的同时规避价值观漂移提供了有效的防护。
 
-![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/wps_doc_7.png)
+![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/wps_doc_7.jpg)
 
 </details>
 
