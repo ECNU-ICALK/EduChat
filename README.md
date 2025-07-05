@@ -43,8 +43,8 @@
 - [**EduChat 1.0** (educhat-sft-002-1.8b-qwen1.5)](https://huggingface.co/ecnu-icalk/educhat-sft-002-1.8b-qwen1.5)：基于Qwen1.5 1.8B训练得到
 - [**EduChat 1.0** (educhat-sft-002-14b-qwen1.5)](https://huggingface.co/ecnu-icalk/educhat-sft-002-14b-qwen1.5)：基于Qwen1.5 14B训练得到
 - [**EduChat 1.0** (educhat-sft-002-32b-qwen1.5)](https://huggingface.co/ecnu-icalk/educhat-sft-002-32b-qwen1.5)：基于Qwen1.5 32B训练得到
+- [**EduChat 2.0** (educhat-sft-003-7b-qwen2.5)](https://huggingface.co/ecnu-icalk/educhat-sft-003-7b-qwen2.5)：基于Qwen2.5 7B训练得到
 - [**EduChat 2.0** (educhat-sft-003-32b-qwen2.5)](https://huggingface.co/ecnu-icalk/educhat-sft-003-32b-qwen2.5)：基于Qwen2.5 32B训练得到
-- [**EduChat 2.0** (educhat-sft-003-72b-qwen2.5)](https://huggingface.co/ecnu-icalk/educhat-sft-003-72b-qwen2.5)：基于Qwen2.5 72B训练得到
 - [**EduChat-R1** (educhat-r1-001-32b-qwen3.0)](https://huggingface.co/ecnu-icalk/educhat-r1-001-32b-qwen3.0)：基于Qwen3.0 32B训练得到
 - [**EduChat-R1** (educhat-r1-001-8b-qwen3.0)](https://huggingface.co/ecnu-icalk/educhat-r1-001-8b-qwen3.0)：基于Qwen3.0 8B训练得到
 
