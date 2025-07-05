@@ -9,9 +9,7 @@
 [![Generic badge](https://img.shields.io/badge/🤗-Huggingface%20Repo-577CF6.svg)](https://huggingface.co/ecnu-icalk)
 
 <!-- [[中文版](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] -->
-- 内测地址：https://www.educhat.top/ 
-  - 内测申请：请邮件dan_yh@stu.ecnu.edu.cn，以“EduChat内测申请+单位”作为邮件标题，邮件内容中写明用途。
-- 公测地址：https://educhat.xiaoi.com/
+- 体验地址：https://www.educhat.top/ 
 
 ## 目录
 
@@ -39,6 +37,10 @@
 - [**educhat-sft-002-1.8b-qwen1.5**](https://huggingface.co/ecnu-icalk/educhat-sft-002-1.8b-qwen1.5)：基于Qwen1.5 1.8B训练得到
 - [**educhat-sft-002-14b-qwen1.5**](https://huggingface.co/ecnu-icalk/educhat-sft-002-14b-qwen1.5)：基于Qwen1.5 14B训练得到
 - [**educhat-sft-002-32b-qwen1.5**](https://huggingface.co/ecnu-icalk/educhat-sft-002-32b-qwen1.5)：基于Qwen1.5 32B训练得到
+- [**educhat-sft-003-32b-qwen2.5**](https://huggingface.co/ecnu-icalk/educhat-sft-003-32b-qwen2.5)：基于Qwen2.5 32B训练得到
+- [**educhat-sft-003-72b-qwen2.5**](https://huggingface.co/ecnu-icalk/educhat-sft-003-72b-qwen2.5)：基于Qwen2.5 72B训练得到
+- [**educhat-r1-001-32b-qwen3.0**](https://huggingface.co/ecnu-icalk/educhat-r1-001-32b-qwen3.0)：基于Qwen3.0 32B训练得到
+- [**educhat-r1-001-8b-qwen3.0**](https://huggingface.co/ecnu-icalk/educhat-r1-001-8b-qwen3.0)：基于Qwen3.0 8B训练得到
 
 ### 数据
 
@@ -309,9 +311,14 @@ curl -X POST "http://localhost:19324" \
 
 本项目仅供研究目的使用，项目开发者对于使用本项目（包括但不限于数据、模型、代码等）所导致的任何危害或损失不承担责任。详情请参考该[免责声明](https://github.com/icalk-nlp/EduChat/blob/main/LICENSE/DISCLAIMER)。
 
+## 团队介绍
+- **主要发起人**: 陈琴、周杰、贺樑
+- **主要负责人**: 陈琴、周杰、吴雯、吴兴蛟、吴玉兰、贺樑
+- **参与人**: 丁宇洋、但宇豪、周友根、王子威、李俊松、丁棋、周莘杰、宋知时、杨宇涛、怀天宇、詹必豪、沈锴成、单良、许俊杰、张子昊、贝佳洋
+
 ## :heart: 致谢
 
-- [LLaMa](https://arxiv.org/abs/2302.13971)，[Baichuan](https://github.com/baichuan-inc): EduChat是基于LLaMA和Baichuan作为基座
+- [Qwen](https://github.com/QwenLM/Qwen)，[Baichuan](https://github.com/baichuan-inc): EduChat是基于Qwen和Baichuan作为基座
 - [Open Assistant](https://github.com/LAION-AI/Open-Assistant): EduChat参考OA构建模型训练代码
 - [华东师范大学出版社](https://www.ecnupress.com.cn/)：[教育大模型语料](http://educorpus.ecnupress.com.cn/#/)由华师大出版社支持
 - [竹蜻蜓数据科技（浙江）有限公司](https://www.autopaddle.com//): 开发支持
