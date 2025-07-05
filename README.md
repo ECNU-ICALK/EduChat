@@ -294,7 +294,7 @@ curl -X POST "http://localhost:19324" \
 
 ## 产品介绍
 
-**产品1: 舒心阁（MindCare@EduChat）**
+<details><summary><b>产品1: 舒心阁（MindCare@EduChat）</b></summary>
   学生的心理健康已成为当下教育中不可忽视的问题，也隐性影响着学习效果。团队以EduChat为核心基座，研发了涵盖心理评估、浅层情感陪伴、深层心理疏导的“舒心阁”（MindCare@EduChat）。
   - 心理评估：以专业量表为基础，通过主动问询式对话交互，并结合语音、面部表情等多模态情绪识别，实现精准、高效的心理健康指数评估，赋能大规模人群的心理问题快速筛查和早期研判。
   - 浅层情感陪伴：定制青少年喜爱的角色，并结合探索、安抚、共情等通用策略，提供特定角色的情感支持和陪伴。
@@ -302,6 +302,7 @@ curl -X POST "http://localhost:19324" \
 
 ![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/wps_doc_10.png)
 
+</details>
 
 
 <details><summary><b>产品2: 安全加固（Shell@EduChat）</b></summary>
