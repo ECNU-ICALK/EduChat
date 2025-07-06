@@ -1,13 +1,13 @@
 # EduChat
+<p align="center" width="100%">
+<a href="https://www.educhat.top/" target="_blank"><img src="https://github.com/icalk-nlp/EduChat/blob/main/imgs/EduChat.jpeg" alt="EduChat" style="width: 50%; min-width: 300px; display: block; margin: auto;"></a>
+</p>
+
 教育是影响人的身心发展的社会实践活动，旨在把人所固有的或潜在的素质自内而外激发出来。因此，必须贯彻“以人为本”的教育理念，重点关注人的个性化、引导式、身心全面发展。为了更好地助力”以人为本“的教育，华东师范大学计算机科学与技术学院的[EduNLP团队](https://www.educhat.top/#/)探索了针对教育垂直领域的对话大模型[EduChat](https://www.educhat.top)相关项目研发。该项目主要研究以预训练大模型为基底的教育对话大模型相关技术，融合多样化的教育垂直领域数据，辅以指令微调、价值观对齐等方法，提供教育场景下自动出题、作业批改、情感支持、课程辅导、高考咨询等丰富功能，服务于广大老师、学生和家长群体，助力实现因材施教、公平公正、富有温度的智能教育。
 
 上节课上到哪里了？学生掌握情况怎么样？这节课要上什么内容呢？我要怎么上才能要学生听懂呢？学生可能会存在什么问题呢？为了让学生更好更快地学习，老师在上课之前，往往会先思考“教什么？如何教？”的问题。能不能要大模型也学会先思考再育人（Thinking before teaching）呢？针对这个问题，华东师范大学计算机科学与技术学院的EduNLP团队研发了推理教育大模型EduChat-R1，一个更懂学生、更会教学的教育专用推理大模型。该模型基于该团队最新研发的教育大模型基座EduChat 2.0，构建教育场景特有的深度推理指令数据集，并通过强化学习训练实现模型教学场景慢思考能力涌现。目前，本团队同时开源了EduChat 2.0和EduChat-R1模型，8B、32B等多个版本模型参数已在Github和 Hugging Face 等平台开放，助力大模型在智能教育领域的研究和应用发展。
 
 基于EduChat 2.0以及EduChat-R1模型，团队围绕教育心理、教育安全、数字治疗、辅助授课和教材出版等场景，研发了舒心阁（MindCare@EduChat）、安全加固（Shell@EduChat）、奇迹疗愈（MiracleH@EduChat）、AI智慧黑板（AiBoard@EduChat）和敏捷出版（AgiPub@EduChat）等多款产品。
-
-<p align="center" width="100%">
-<a href="https://www.educhat.top/" target="_blank"><img src="https://github.com/icalk-nlp/EduChat/blob/main/imgs/EduChat.jpeg" alt="EduChat" style="width: 50%; min-width: 300px; display: block; margin: auto;"></a>
-</p>
 
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE)
