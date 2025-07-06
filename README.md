@@ -339,8 +339,8 @@ curl -X POST "http://localhost:19324" \
 </details>
 
 
-<details><summary><b>产品4: 敏捷出版（AgiPub@EduChat）</b></summary>
-为了更好赋能教师教学过程，本团队研发了AI智慧黑板，赋能“课前-课中-课后-自习室”全流程。具体地，本项目以教育大模型EduChat为核心驱动，液晶黑板+一体机/电视机+AI盒子为交互载体，配套专业AI教学软件与优势教育资源，实现教学全数字化、备课便捷化、课堂生动化，定义AI教学新体验。
+<details><summary><b>产品4: 敏捷编撰（AgiEdit@EduChat）</b></summary>
+随着大模型技术的迅猛发展，AI在文字撰写、图片设计等方面展现出强大能力，推动教材编撰全面迈入“敏捷时代”！为此，团队探索探索智能驱动下的教材撰写新范式，通过AI赋能内容生成、结构优化、智能审校与个性化定制，实现教材编写从“单点创作”到“协同共创”、从“静态出版”到“动态更新”的跨越式升级。这不仅可以大幅提升编写效率与质量，更开启以学习者为中心的教育内容新生态。具体地，本项目以职业教育的人工智能教材为例，实现了人机协同模式下的书籍撰写，赋能目录生成、内容生成、图片生成以及内容矫正等全流程，将时间从多人3-6个月压缩到单人2-3个月，效率提高超过3-4倍。
 
 ![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/wps_doc_8.png)
 ![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/wps_doc_9.png)
