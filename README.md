@@ -12,7 +12,7 @@
 
 2023年4月，首个专注于教育领域的垂直大模型正式问世，开启了教育人工智能的新篇章。同年6月，团队发布了开源版本EduChat 1.0，为教育AI的发展注入强大动力。8月，进一步公开了详尽的训练报告与参数信息，为行业研究提供了坚实基础。10月，重磅推出“华师-学海无涯”教育语料数据集，涵盖超过13TB的高质量数据，极大丰富了教育大模型的数据生态。进入2024年，研发重点转向功能优化与场景拓展，成功升级引导式教学功能，并创新性地将AI应用于心理健康领域，推出新一代教育大模型EduChat 2.0，推动教育AI向更深层次、更广维度延伸。在过去三年中，团队深入调研数十次一线教学场景，持续打磨技术，累计内测十余个版本，并在多款下游教育产品中不断迭代优化。最终，在2025年7月，正式发布EduChat-R1，标志着教育大模型在性能与应用能力上的全面跃升，也为智能教育的未来发展树立了新标杆。
 
-这节课要上什么内容呢（教什么）？我要怎么教才能要学生听懂呢（如何教）？这个学生最近是遇到是什么问题了吗（有温度）？为了让学生更好更快地学习，老师在上课之前，往往会先思考“教什么？如何教？”等问题。教育大模型能否先思考再育人（Thinking before teaching），实现从工具到认知伙伴的转变呢？针对这个问题，华东师范大学计算机科学与技术学院的EduNLP团队研发了推理教育大模型EduChat-R1，一个更懂学生、更会教学的教育专用推理大模型。该模型基于最新研发的教育大模型基座EduChat 2.0，构建教育场景特有的深度推理指令数据集，并通过强化学习训练实现模型教学场景慢思考能力涌现。同时，团队开源了EduChat 2.0和EduChat-R1模型，其中8B、32B等多个版本模型参数已在Github和 Hugging Face 等平台开放，助力大模型在智能教育领域的研究和应用发展。
+![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/history.png)
 
 为更好地赋能智能教育，团队基于EduChat模型，深入挖掘教育场景需求，围绕教育心理、教育安全、数字治疗、辅助授课和教材编撰等核心方向，创新研发了多款智能化教育产品：
 
@@ -25,8 +25,6 @@
 
 <!-- [[中文版](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] -->
 - 体验地址：https://www.educhat.top/ 
-
-![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/history.png)
 
 ## 目录
 
@@ -46,7 +44,6 @@
 ## :spiral_notepad: 开源清单
 
 ### 模型
-**注意：使用前按照模型介绍页面中的使用方法部分解密**
 - [**EduChat 0.1** (educhat-sft-002-13b-baichuan)](https://huggingface.co/ecnu-icalk/educhat-sft-002-13b-baichuan)：在educhat-base-002-13b-baichuan基础上，使用我们构建的教育领域多技能数据微调后得到
 - [**EduChat 0.1** (educhat-base-002-13b-baichuan)]()：使用educhat-sft-002-data-osm数据训练得到
 - [**EduChat 0.1** (educhat-sft-002-7b)](https://huggingface.co/ecnu-icalk/educhat-sft-002-7b)：在educhat-base-002-7b基础上，使用我们构建的教育领域多技能数据微调后得到
@@ -56,6 +53,9 @@
 - [**EduChat 1.0** (educhat-sft-002-1.8b-qwen1.5)](https://huggingface.co/ecnu-icalk/educhat-sft-002-1.8b-qwen1.5)：基于Qwen1.5 1.8B训练得到
 - [**EduChat 1.0** (educhat-sft-002-14b-qwen1.5)](https://huggingface.co/ecnu-icalk/educhat-sft-002-14b-qwen1.5)：基于Qwen1.5 14B训练得到
 - [**EduChat 1.0** (educhat-sft-002-32b-qwen1.5)](https://huggingface.co/ecnu-icalk/educhat-sft-002-32b-qwen1.5)：基于Qwen1.5 32B训练得到
+
+这节课要上什么内容呢（教什么）？我要怎么教才能要学生听懂呢（如何教）？这个学生最近是遇到是什么问题了吗（有温度）？为了让学生更好更快地学习，老师在上课之前，往往会先思考“教什么？如何教？”等问题。教育大模型能否先思考再育人（Thinking before teaching），实现从工具到认知伙伴的转变呢？针对这个问题，华东师范大学计算机科学与技术学院的EduNLP团队研发了推理教育大模型EduChat-R1，一个更懂学生、更会教学的教育专用推理大模型。该模型基于最新研发的教育大模型基座EduChat 2.0，构建教育场景特有的深度推理指令数据集，并通过强化学习训练实现模型教学场景慢思考能力涌现。同时，团队开源了EduChat 2.0和EduChat-R1模型，其中8B、32B等多个版本模型参数已在Github和 Hugging Face 等平台开放，助力大模型在智能教育领域的研究和应用发展。
+
 - [**EduChat 2.0** (educhat-sft-003-7b-qwen2.5)](https://huggingface.co/ecnu-icalk/educhat-sft-003-7b-qwen2.5)：基于Qwen2.5 7B训练得到
 - [**EduChat 2.0** (educhat-sft-003-32b-qwen2.5)](https://huggingface.co/ecnu-icalk/educhat-sft-003-32b-qwen2.5)：基于Qwen2.5 32B训练得到
 - [**EduChat-R1** (educhat-r1-001-32b-qwen3.0)](https://huggingface.co/ecnu-icalk/educhat-r1-001-32b-qwen3.0)：基于Qwen3.0 32B训练得到
