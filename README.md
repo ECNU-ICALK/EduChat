@@ -12,6 +12,9 @@
 
 2023年4月，首个专注于教育领域的垂直大模型正式问世，开启了教育人工智能的新篇章。同年6月，团队发布了开源版本EduChat 1.0，为教育AI的发展注入强大动力。8月，进一步公开了详尽的训练报告与参数信息，为行业研究提供了坚实基础。10月，重磅推出“华师-学海无涯”教育语料数据集，涵盖超过13TB的高质量数据，极大丰富了教育大模型的数据生态。进入2024年，研发重点转向功能优化与场景拓展，成功升级引导式教学功能，并创新性地将AI应用于心理健康领域，推出新一代教育大模型EduChat 2.0，推动教育AI向更深层次、更广维度延伸。在过去三年中，团队深入调研数十次一线教学场景，持续打磨技术，累计内测十余个版本，并在多款下游教育产品中不断迭代优化。最终，在2025年7月，正式发布EduChat-R1，标志着教育大模型在性能与应用能力上的全面跃升，也为智能教育的未来发展树立了新标杆。
 
+<!-- [[中文版](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] -->
+- 体验地址：https://www.educhat.top/
+
 ![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/history.png)
 
 为更好地赋能智能教育，团队基于EduChat模型，深入挖掘教育场景需求，围绕教育心理、教育安全、数字治疗、辅助授课和教材编撰等核心方向，创新研发了多款智能化教育产品：
@@ -23,8 +26,7 @@
 - 敏捷编撰（AgiEdit@EduChat）：探索教材创作新范式，让知识更新更高效。
 
 
-<!-- [[中文版](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] [[English](https://github.com/icalk-nlp/EduChat/blob/main/README.md)] -->
-- 体验地址：https://www.educhat.top/ 
+
 
 ## 目录
 
