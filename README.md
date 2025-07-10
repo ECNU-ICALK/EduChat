@@ -109,6 +109,13 @@ EduChat: A Large-Scale Language Model-based Chatbot System for Intelligent Educa
 
 </details>
 
+<details><summary><b>情感支持-推理版本</b></summary>
+
+
+![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/心理疏导-2R1-Small.gif)
+
+</details>
+
 <details><summary><b>作文批改</b></summary>
 
 
@@ -124,8 +131,12 @@ EduChat: A Large-Scale Language Model-based Chatbot System for Intelligent Educa
 </details>
 
 
+<details><summary><b>启发式教学-推理版本</b></summary>
 
 
+![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/引导式教学R1-Small.gif)
+
+</details>
 
 ## :robot: 本地部署
 
