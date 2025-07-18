@@ -334,6 +334,8 @@ EduChat的能力
 **Gradio**
 EduChat-R1 网页demo：[demo/educhat-r1_web_demo.py](https://github.com/icalk-nlp/EduChat/blob/main/demo/educhat-r1_web_demo.py)
 
+![image](https://github.com/icalk-nlp/EduChat/blob/main/imgs/EduChat-R1_web_demo.gif)
+
 对于其余EduChat模型，你可以运行本仓库中的[demo/educhat_gradio.py](https://github.com/icalk-nlp/EduChat/blob/main/demo/educhat_gradio.py)：
 
 ```bash
